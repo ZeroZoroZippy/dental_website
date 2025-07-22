@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+body {
+  position: relative;
+  background-color: #f5f5f5;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  /* background-image: url('./assets/bg_6.png'); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.1;
+  mix-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  filter: blur(2px);
+  animation: noise 0.2s steps(8) infinite;
+}
+
+@keyframes noise {
+  0% {
+    background-position: 0 0;
+  }
+
+  10% {
+    background-position: -5% -5%;
+  }
+
+  20% {
+    background-position: -10% 5%;
+  }
+
+  30% {
+    background-position: 5% -10%;
+  }
+
+  40% {
+    background-position: -5% 15%;
+  }
+
+  50% {
+    background-position: -10% 5%;
+  }
+
+  60% {
+    background-position: 15% 0;
+  }
+
+  70% {
+    background-position: 0 15%;
+  }
+
+  80% {
+    background-position: -15% 0;
+  }
+
+  90% {
+    background-position: 15% 10%;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out;
+}
+
+/* Google Font Utility Classes */
+.font-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+.font-inter-light {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-space-grotesk {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.special-gothic-condensed-one-regular {
+  font-family: "Special Gothic Condensed One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
