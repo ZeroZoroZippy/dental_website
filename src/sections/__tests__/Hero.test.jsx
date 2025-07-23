@@ -11,7 +11,7 @@ jest.mock('framer-motion', () => ({
 }));
 
 // Mock the hero image
-jest.mock('../assets/hero.jpeg', () => 'hero-image.jpg');
+jest.mock('../../assets/hero.jpeg', () => 'hero-image.jpg');
 
 // Mock InfoBoxContainer
 jest.mock('../../ui/InfoBoxContainer', () => {
