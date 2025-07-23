@@ -185,7 +185,7 @@ const Navbar = () => {
                   ease: [0.4, 0, 0.6, 1]
                 }
               }}
-              className="md:hidden bg-black/10 backdrop-blur-md rounded-b-4xl px-2 overflow-hidden"
+              className="md:hidden bg-black/5 backdrop-blur-sm rounded-b-4xl px-2 overflow-hidden"
             >
               <div className="flex flex-col space-y-8 py-8">
                 {navItems.map((item, index) => (

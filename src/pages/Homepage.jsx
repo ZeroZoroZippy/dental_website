@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Hero from '../sections/Hero';
 import About from '../sections/About';
+import Banner from '../sections/Banner';
 
 const Homepage = () => {
   return (
@@ -8,6 +9,7 @@ const Homepage = () => {
       <Navbar />
       <Hero />
       <About />
+      <Banner />
     </div>
   );
 };
