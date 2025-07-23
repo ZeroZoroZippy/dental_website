@@ -29,7 +29,7 @@ const WorkingHoursBox = ({ windowWidth, delay = 0.8 }) => {
             </h3>
             <div style={{ 
                 fontFamily: 'Quicksand, sans-serif', 
-                fontSize: windowWidth < 768 ? '0.75rem' : '0.8rem', 
+                fontSize: windowWidth < 768 ? '0.85rem' : '0.8rem', 
                 textAlign: 'left', 
                 color: '#666' 
             }}>

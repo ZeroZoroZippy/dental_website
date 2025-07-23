@@ -18,8 +18,9 @@ const Hero = () => {
         };
     }, []);
 
-    // Image placeholder configuration - maintain square shape
-    const imageSize = windowWidth < 768 ? '400px' : '570px';
+    // Image configuration - separate width and height for mobile
+    const imageWidth = windowWidth < 768 ? '400px' : '100%'; // Keep original width
+    const imageHeight = windowWidth < 768 ? '200px' : '570px'; // Reduced height for mobile
 
     return (
         <div style={{
@@ -36,7 +37,7 @@ const Hero = () => {
                     margin: windowWidth < 768 ? '0.5rem' : '2rem',
                     marginTop: 0,
                     borderRadius: windowWidth < 768 ? '2rem' : '2rem',
-                    padding: '1.25rem', // Main container padding as requested
+                    padding: '1.25rem',
                     position: 'relative',
                     zIndex: '1',
                     maxWidth: '1400px',
@@ -51,18 +52,18 @@ const Hero = () => {
                     height: '100%',
                     width: '100%'
                 }}>
-                    {/* LEFT SECTION - Text Content */}
+                    {/* TITLE AND DESCRIPTION - Order 1 on mobile, part of left section on desktop */}
                     <div style={{
-                        flex: '1',
+                        flex: windowWidth < 768 ? 'none' : '1',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        justifyContent: windowWidth < 768 ? 'flex-start' : 'space-between',
                         alignItems: 'flex-start',
-                        order: windowWidth < 768 ? '2' : '1',
-                        padding: '0', // No padding as requested
-                        margin: '0'   // No margin as requested
+                        order: windowWidth < 768 ? '1' : '1',
+                        padding: '0',
+                        margin: '0',
+                        marginBottom: windowWidth < 768 ? '1rem' : '0' // Increased from '0.5rem' to '1rem'
                     }}>
-                        {/* TOP PART - Title and Description */}
                         <div style={{
                             display: 'flex',
                             flexDirection: 'column',
@@ -102,36 +103,38 @@ const Hero = () => {
                             </motion.p>
                         </div>
 
-                        {/* BOTTOM PART - Info Container */}
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'flex-start',
-                            padding: '0',
-                            margin: '0',
-                            width: '100%'
-                        }}>
-                            <InfoBoxContainer />
-                        </div>
+                        {/* INFO CONTAINER - Only shown on desktop within left section */}
+                        {windowWidth >= 768 && (
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'flex-start',
+                                padding: '0',
+                                margin: '0',
+                                width: '100%'
+                            }}>
+                                <InfoBoxContainer />
+                            </div>
+                        )}
                     </div>
 
-                    {/* RIGHT SECTION - Hero Image */}
+                    {/* HERO IMAGE - Order 2 on mobile, order 2 on desktop */}
                     <div style={{
                         flex: '1',
                         display: 'flex',
                         justifyContent: 'flex-end',
                         alignItems: 'center',
-                        order: windowWidth < 768 ? '1' : '2',
-                        padding: '0', // No padding as requested
-                        margin: '0',   // No margin as requested
-                        marginBottom: windowWidth < 768 ? '2rem' : '0' // Gap between containers on mobile
+                        order: windowWidth < 768 ? '2' : '2',
+                        padding: '0',
+                        margin: '0',
+                        marginBottom: windowWidth < 768 ? '0.25rem' : '0' // Reduced from '0.5rem' to '0.25rem'
                     }}>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.1, duration: 0.5 }}
                             style={{
-                                width: windowWidth < 768 ? imageSize : '100%',
-                                height: windowWidth < 768 ? imageSize : '570px',
+                                width: imageWidth, // Using separate width variable
+                                height: imageHeight, // Using separate height variable
                                 borderRadius: '2.5rem',
                                 overflow: 'hidden',
                                 position: 'relative',
@@ -152,6 +155,20 @@ const Hero = () => {
                         </motion.div>
                     </div>
                 </div>
+
+                {/* INFO CONTAINER - Separate section for mobile, Order 3 */}
+                {windowWidth < 768 && (
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'flex-start',
+                        padding: '0',
+                        margin: '0',
+                        width: '100%',
+                        order: '3'
+                    }}>
+                        <InfoBoxContainer />
+                    </div>
+                )}
             </motion.div>
         </div>
     );
