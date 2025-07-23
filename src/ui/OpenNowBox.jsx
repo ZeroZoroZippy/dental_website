@@ -12,13 +12,23 @@ const OpenNowBox = ({ windowWidth, delay = 1.0 }) => {
                 padding: windowWidth < 768 ? '0.75rem' : '1rem',
                 border: '1px solid #A3A3A3',
                 display: 'flex',
+                flexDirection: windowWidth < 768 ? 'column' : 'row',
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '0.5rem',
                 flex: '1',
-                minHeight: windowWidth < 768 ? '50px' : '60px'
+                height: windowWidth < 768 ? '100%' : 'auto',
+                minHeight: windowWidth < 768 ? 'auto' : '60px'
             }}
         >
+            <span style={{
+                fontFamily: 'Quicksand, sans-serif',
+                fontSize: windowWidth < 768 ? '1rem' : '1rem',
+                fontWeight: '600',
+                color: '#2d2d2d'
+            }}>
+                Open Now
+            </span>
             <motion.div
                 animate={{
                     scale: [1, 1.2, 1],
@@ -36,14 +46,6 @@ const OpenNowBox = ({ windowWidth, delay = 1.0 }) => {
                     borderRadius: '50%'
                 }}
             />
-            <span style={{
-                fontFamily: 'Quicksand, sans-serif',
-                fontSize: windowWidth < 768 ? '0.8rem' : '1rem',
-                fontWeight: '600',
-                color: '#2d2d2d'
-            }}>
-                Open Now
-            </span>
         </motion.div>
     );
 };
