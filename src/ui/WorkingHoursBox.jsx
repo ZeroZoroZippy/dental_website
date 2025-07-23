@@ -13,7 +13,8 @@ const WorkingHoursBox = ({ windowWidth, delay = 0.8 }) => {
                 paddingBottom: windowWidth < 768 ? '1.5rem' : '1.75rem',
                 flex: '1',
                 border: '1px solid #f0f0f0',
-                minHeight: windowWidth < 768 ? '100px' : '120px'
+                height: windowWidth < 768 ? '100%' : 'auto',
+                minHeight: windowWidth < 768 ? 'auto' : '120px'
             }}
         >
             <h3 style={{

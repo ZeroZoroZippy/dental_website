@@ -27,36 +27,62 @@ const InfoBoxContainer = () => {
             width: '100%',
             maxWidth: windowWidth < 768 ? '100%' : '100%'
         }}>
-            {/* Mobile: Book Appointment first */}
-            {windowWidth < 768 && (
-                <div style={{
-                    flex: '1',
-                    minWidth: '100%'
-                }}>
-                    <BookAppointmentBox windowWidth={windowWidth} delay={0.6} />
-                </div>
-            )}
+            {/* Mobile Bento Layout */}
+            {windowWidth < 768 ? (
+                <>
+                    {/* Top: Book Appointment (full width) */}
+                    <div style={{
+                        width: '100%'
+                    }}>
+                        <BookAppointmentBox windowWidth={windowWidth} delay={0.6} />
+                    </div>
 
-            {/* Left side container for Working Hours and Open Now */}
-            <div style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.5rem',
-                flex: windowWidth < 768 ? '1' : '1',
-                minWidth: windowWidth < 768 ? '100%' : '200px'
-            }}>
-                <WorkingHoursBox windowWidth={windowWidth} delay={windowWidth < 768 ? 0.8 : 0.8} />
-                <OpenNowBox windowWidth={windowWidth} delay={windowWidth < 768 ? 1.0 : 1.0} />
-            </div>
+                    {/* Bottom: Working Hours (left) + Open Now (right) */}
+                    <div style={{
+                        display: 'flex',
+                        gap: '1rem',
+                        width: '100%',
+                        height: '130px' // Fixed height to ensure both boxes are same height
+                    }}>
+                        {/* Working Hours - wider due to more content */}
+                        <div style={{
+                            flex: '2',
+                            minWidth: '0' // Allow flex shrinking
+                        }}>
+                            <WorkingHoursBox windowWidth={windowWidth} delay={0.8} />
+                        </div>
 
-            {/* Desktop: Book Appointment on right side */}
-            {windowWidth >= 768 && (
-                <div style={{
-                    flex: '1.5',
-                    minWidth: '250px'
-                }}>
-                    <BookAppointmentBox windowWidth={windowWidth} delay={0.9} />
-                </div>
+                        {/* Open Now - narrower, content-based width */}
+                        <div style={{
+                            flex: '1',
+                            minWidth: '0' // Allow flex shrinking
+                        }}>
+                            <OpenNowBox windowWidth={windowWidth} delay={1.0} />
+                        </div>
+                    </div>
+                </>
+            ) : (
+                <>
+                    {/* Desktop Layout - Left side container for Working Hours and Open Now */}
+                    <div style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '0.5rem',
+                        flex: '1',
+                        minWidth: '200px'
+                    }}>
+                        <WorkingHoursBox windowWidth={windowWidth} delay={0.8} />
+                        <OpenNowBox windowWidth={windowWidth} delay={1.0} />
+                    </div>
+
+                    {/* Desktop: Book Appointment on right side */}
+                    <div style={{
+                        flex: '1.5',
+                        minWidth: '250px'
+                    }}>
+                        <BookAppointmentBox windowWidth={windowWidth} delay={0.9} />
+                    </div>
+                </>
             )}
         </div>
     );
