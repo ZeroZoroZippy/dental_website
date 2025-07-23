@@ -1,139 +1,159 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Card from '../ui/Card';
-
-// Profile image - same as AboutMe
-import profileImage from '../assets/logo.jpg';
+import hero from '../assets/hero.jpeg';
+import InfoBoxContainer from '../ui/InfoBoxContainer';
 
 const Hero = () => {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    // Handle window resize for responsive behavior
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    // Image placeholder configuration - maintain square shape
+    const imageSize = windowWidth < 768 ? '400px' : '570px';
+
     return (
-        <section id="home" className="relative h-screen md:h-screen flex items-center justify-center">
-            {/* Mobile Layout - Vertical Stack */}
-            <div className="md:hidden w-full px-4 flex flex-col items-center justify-center space-y-3 mt-15 -mb-10">
-                {/* Name */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <p className="special-gothic-condensed-one-regular text-2xl font-medium text-gray-600 tracking-wider uppercase text-center">
-                        Yuvaan Vithlani
-                    </p>
-                </motion.div>
-
-                {/* DIGITAL */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <h1 className="special-gothic-condensed-one-regular text-5xl font-black text-gray-900 leading-none text-center -mt-2">
-                        DIGITAL
-                    </h1>
-                </motion.div>
-
-                {/* Card */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 1, delay: 0.6 }}
-                >
-                    <Card enableToggle={true} />
-                </motion.div>
-
-                {/* DESIGNER */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <h1 className="special-gothic-condensed-one-regular text-5xl font-black text-gray-900 leading-none text-center">
-                        DESIGNER
-                    </h1>
-                </motion.div>
-
-                {/* Description */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="max-w-xs"
-                >
-                    <p className="font-inter-light text-md text-gray-600 leading-relaxed text-center">
-                        I'm a India-based digital designer and Framer developer
-                    </p>
-                </motion.div>
-            </div>
-
-            {/* Desktop/Tablet - Empty container for positioning */}
-            <div className="hidden md:block container mx-auto px-4"></div>
-
-            {/* Desktop & Tablet Text Elements positioned around the card */}
-            <div className="hidden md:block absolute inset-0 pointer-events-none">
-                {/* Top Left - Name */}
-                <motion.div
-                    className="absolute top-[40vh] md:top-[35vh] lg:top-[40vh] left-[8vw] md:left-[12vw] lg:left-[16.5vw]"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <p className="special-gothic-condensed-one-regular text-2xl md:text-2xl lg:text-3xl font-medium text-gray-600 tracking-wider uppercase">
-                        Yuvaan Vithlani
-                    </p>
-                </motion.div>
-
-                {/* Left Side - DIGITAL */}
-                <motion.div
-                    className="absolute top-[45vh] md:top-[40vh] lg:top-[45vh] left-[8vw] md:left-[12vw] lg:left-[15vw]"
-                    initial={{ opacity: 0, x: -100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <h1 className="special-gothic-condensed-one-regular text-3xl md:text-5xl lg:text-6xl xl:text-9xl font-black text-gray-900 leading-none">
-                        DIGITAL
-                    </h1>
-                </motion.div>
-
-                {/* Right Side - DESIGNER (positioned diagonally for tablet) */}
-                <motion.div
-                    className="absolute top-[45vh] md:top-[65vh] lg:top-[45vh] right-[8vw] md:right-[8vw] lg:right-[9vw]"
-                    initial={{ opacity: 0, x: 100 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <h1 className="special-gothic-condensed-one-regular text-3xl md:text-5xl lg:text-6xl xl:text-9xl font-black text-gray-900 leading-none">
-                        DESIGNER
-                    </h1>
-                </motion.div>
-
-                {/* Right Side - Description (positioned below DESIGNER for diagonal flow) */}
-                <motion.div
-                    className="absolute top-[62vh] md:top-[75vh] lg:top-[62vh] right-[8vw] md:right-[8vw] lg:right-[9vw] max-w-xs md:max-w-sm"
-                    initial={{ opacity: 0, y: 50 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                >
-                    <p className="font-inter-light text-sm md:text-base lg:text-lg text-gray-600 leading-relaxed text-right">
-                        I'm a India-based digital designer and Framer developer
-                    </p>
-                </motion.div>
-            </div>
-
-            {/* Static Card for desktop & tablet */}
+        <div style={{
+            paddingTop: windowWidth < 768 ? '5.5rem' : '6.5rem',
+            position: 'relative',
+            width: '100%'
+        }}>
             <motion.div
-                className="hidden md:block absolute left-1/2 -translate-x-1/2 top-[25vh] md:top-[20vh] lg:top-[20vh]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
                 style={{
-                    zIndex: 50,
-                    perspective: '1000px',
-                    transformStyle: 'preserve-3d',
-                    filter: 'drop-shadow(0px 20px 10px rgba(0, 0, 0, 0.45))'
+                    backgroundColor: '#ffffff',
+                    margin: windowWidth < 768 ? '0.5rem' : '2rem',
+                    marginTop: 0,
+                    borderRadius: windowWidth < 768 ? '2rem' : '2rem',
+                    padding: '1.25rem', // Main container padding as requested
+                    position: 'relative',
+                    zIndex: '1',
+                    maxWidth: '1400px',
+                    width: 'calc(100% - ' + (windowWidth < 768 ? '1rem' : '4rem') + ')',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
                 }}
-                initial={{ opacity: 0, scale: 0.8, rotateY: 0, rotateX: 0 }}
-                animate={{ opacity: 1, scale: 1, rotateY: 0, rotateX: 0, rotateZ: 0 }}
-                transition={{ duration: 1, delay: 0.2 }}
             >
-                <Card enableToggle={true} />
+                <div style={{
+                    display: 'flex',
+                    flexDirection: windowWidth < 768 ? 'column' : 'row',
+                    height: '100%',
+                    width: '100%'
+                }}>
+                    {/* LEFT SECTION - Text Content */}
+                    <div style={{
+                        flex: '1',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                        alignItems: 'flex-start',
+                        order: windowWidth < 768 ? '2' : '1',
+                        padding: '0', // No padding as requested
+                        margin: '0'   // No margin as requested
+                    }}>
+                        {/* TOP PART - Title and Description */}
+                        <div style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'flex-start',
+                            padding: '0',
+                            margin: '0'
+                        }}>
+                            <motion.h1
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.2, duration: 0.5 }}
+                                style={{
+                                    fontSize: windowWidth < 768 ? '2.25rem' : '4rem',
+                                    fontWeight: '700',
+                                    fontFamily: 'Unbounded, sans-serif',
+                                    lineHeight: '1.1',
+                                    textAlign: 'left',
+                                    marginBottom: '1rem'
+                                }}
+                            >
+                                Your Perfect Smile Starts here
+                            </motion.h1>
+                            
+                            <motion.p
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.4, duration: 0.5 }}
+                                style={{
+                                    fontSize: windowWidth < 768 ? '1rem' : '1.125rem',
+                                    lineHeight: '1.6',
+                                    fontFamily: 'Quicksand, sans-serif',
+                                    textAlign: 'left'
+                                }}
+                            >
+                                Advanced dental care with a gental touch.<br />
+                                Book your Appointment today.
+                            </motion.p>
+                        </div>
+
+                        {/* BOTTOM PART - Info Container */}
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            padding: '0',
+                            margin: '0',
+                            width: '100%'
+                        }}>
+                            <InfoBoxContainer />
+                        </div>
+                    </div>
+
+                    {/* RIGHT SECTION - Hero Image */}
+                    <div style={{
+                        flex: '1',
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                        order: windowWidth < 768 ? '1' : '2',
+                        padding: '0', // No padding as requested
+                        margin: '0',   // No margin as requested
+                        marginBottom: windowWidth < 768 ? '2rem' : '0' // Gap between containers on mobile
+                    }}>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.1, duration: 0.5 }}
+                            style={{
+                                width: windowWidth < 768 ? imageSize : '100%',
+                                height: windowWidth < 768 ? imageSize : '570px',
+                                borderRadius: '2.5rem',
+                                overflow: 'hidden',
+                                position: 'relative',
+                                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.05)',
+                                maxWidth: '670px'
+                            }}
+                        >
+                            <img
+                                src={hero}
+                                alt="Hero"
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    objectPosition: 'center'
+                                }}
+                            />
+                        </motion.div>
+                    </div>
+                </div>
             </motion.div>
-        </section>
+        </div>
     );
 };
 

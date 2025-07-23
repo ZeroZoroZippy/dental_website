@@ -35,14 +35,14 @@ const Navbar = () => {
       animate={{
         opacity: 1,
         y: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.1)'
+        backgroundColor: 'rgba(255, 255, 255, 0.8)'
       }}
       transition={{
         duration: 0.6,
         ease: [0.25, 0.1, 0.25, 1],
         backgroundColor: { duration: 0.4 }
       }}
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 backdrop-blur-md border border-white/30 shadow-md z-100 rounded-4xl ${windowWidth < 768
+      className={`fixed top-4 left-1/2 transform -translate-x-1/2 backdrop-blur-md border border-gray-200 shadow-md z-100 rounded-4xl ${windowWidth < 768
         ? (isOpen ? 'w-[90%]' : 'w-[20rem]')
         : (isOpen ? 'w-[80%]' : 'w-auto min-w-[40rem] max-w-[80%]')
         }`}
@@ -53,30 +53,14 @@ const Navbar = () => {
           <div className="flex-shrink-0 ml-3">
             <a href="/" className="flex items-center">
               <div className="w-12 h-12 rounded-full bg-[#5E67E6]/20 flex items-center justify-center">
-                <TbDental className="w-7 h-7 text-white" />
+                <TbDental className="w-7 h-7 text-black" />
               </div>
             </a>
           </div>
 
-          {/* Mobile Available for Work Indicator */}
+          {/* Mobile space filler */}
           {!isOpen && (
-            <div className="md:hidden flex-grow flex items-center justify-center">
-              <div className="flex items-center space-x-2">
-                <span className="text-white text-md font-light">Available for work</span>
-                <motion.div
-                  animate={{
-                    scale: [1, 1, 1],
-                    boxShadow: [
-                      "0 0 0 0px rgba(94, 103, 230, 0)",
-                      "0 0 0 6px rgba(94, 103, 230, 0.7)",
-                      "0 0 0 0px rgba(94, 103, 230, 0)"
-                    ]
-                  }}
-                  transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
-                  className="w-1.5 h-1.5 bg-[#5E67E6] rounded-full"
-                />
-              </div>
-            </div>
+            <div className="md:hidden flex-grow"></div>
           )}
 
           {/* Desktop Navigation Container */}
@@ -111,7 +95,7 @@ const Navbar = () => {
                       hover: { y: "-150%" }
                     }}
                     transition={{ duration: 0.3 }}
-                    className="flex items-center justify-center text-white"
+                    className="flex items-center justify-center text-black"
                   >
                     {item.label}
                   </motion.span>
@@ -152,20 +136,9 @@ const Navbar = () => {
               >
                 <motion.a
                   href="#contact"
-                  className="relative overflow-hidden bg-white text-black px-8 py-2 rounded-4xl text-base font-light block whitespace-nowrap"
-                  whileHover="hover"
-                  initial="rest"
+                  className="bg-[#2d2d2d] text-white px-8 py-2 rounded-4xl text-base font-light block whitespace-nowrap"
                 >
-                  <motion.div
-                    className="absolute inset-0 bg-[#5E67E6] rounded-4xl"
-                    variants={{
-                      rest: { scaleX: 0 },
-                      hover: { scaleX: 1 }
-                    }}
-                    style={{ originX: 0 }}
-                    transition={{ duration: 0.3, ease: "easeOut" }}
-                  />
-                  <span className="relative z-10">Contact</span>
+                  <span>Book Appointment</span>
                 </motion.a>
               </motion.div>
             </div>
@@ -198,7 +171,7 @@ const Navbar = () => {
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-white hover:text-[#5E67E6] text-base font-light text-center transition-colors duration-200"
+                    className="text-black hover:text-[#5E67E6] text-base font-light text-center transition-colors duration-200"
                   >
                     {item.label}
                   </a>
@@ -207,20 +180,9 @@ const Navbar = () => {
                   <motion.a
                     href="#contact"
                     onClick={() => setIsOpen(false)}
-                    className="relative overflow-hidden bg-white text-black px-8 py-2 rounded-4xl text-base font-light"
-                    whileHover="hover"
-                    initial="rest"
+                    className="bg-[#2d2d2d] text-white px-8 py-2 rounded-4xl text-base font-light"
                   >
-                    <motion.div
-                      className="absolute inset-0 bg-[#5E67E6] rounded-4xl"
-                      variants={{
-                        rest: { scaleX: 0 },
-                        hover: { scaleX: 1 }
-                      }}
-                      style={{ originX: 0 }}
-                      transition={{ duration: 0.3, ease: "easeOut" }}
-                    />
-                    <span className="relative z-10">Contact</span>
+                    <span>Book Appointment</span>
                   </motion.a>
                 </div>
               </div>
