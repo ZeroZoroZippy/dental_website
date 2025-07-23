@@ -37,7 +37,7 @@ const Navbar = () => {
         y: 0,
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
         width: windowWidth < 768 
-          ? (isOpen ? '90%' : '16rem') // Decreased from 20rem to 16rem
+          ? (isOpen ? '90%' : '20rem') // Decreased from 20rem to 16rem
           : (isOpen ? '80%' : 'auto')
       }}
       transition={{
@@ -56,7 +56,7 @@ const Navbar = () => {
           {/* Logo */}
           <div className="flex-shrink-0 ml-3">
             <a href="/" className="flex items-center">
-              <div className="w-12 h-12 rounded-full bg-[#5E67E6]/20 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-[#1FC8EA]/20 flex items-center justify-center">
                 <TbDental className="w-7 h-7 text-black" />
               </div>
             </a>
@@ -151,7 +151,7 @@ const Navbar = () => {
             <div className="md:hidden mr-2">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="bg-[#5E67E6] rounded-4xl p-2 text-white focus:outline-none"
+                className="bg-[#a9eaf7] rounded-4xl p-2 text-black focus:outline-none"
               >
                 {isOpen ? <HiX className="w-6 h-6" /> : <HiMenuAlt3 className="w-6 h-6" />}
               </button>
