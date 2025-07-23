@@ -35,16 +35,20 @@ const Navbar = () => {
       animate={{
         opacity: 1,
         y: 0,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)'
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        width: windowWidth < 768 
+          ? (isOpen ? '90%' : '16rem') // Decreased from 20rem to 16rem
+          : (isOpen ? '80%' : 'auto')
       }}
       transition={{
         duration: 0.6,
         ease: [0.25, 0.1, 0.25, 1],
-        backgroundColor: { duration: 0.4 }
+        backgroundColor: { duration: 0.4 },
+        width: { duration: 0.5, ease: [0.4, 0, 0.2, 1] } // Smoother width transition
       }}
       className={`fixed top-4 left-1/2 transform -translate-x-1/2 backdrop-blur-md border border-gray-200 shadow-md z-100 rounded-4xl ${windowWidth < 768
-        ? (isOpen ? 'w-[90%]' : 'w-[20rem]')
-        : (isOpen ? 'w-[80%]' : 'w-auto min-w-[40rem] max-w-[80%]')
+        ? 'min-w-[16rem]' // Updated to match new default width
+        : 'min-w-[40rem] max-w-[80%]'
         }`}
     >
       <div className="mx-auto">
@@ -159,24 +163,64 @@ const Navbar = () => {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              initial={{ opacity: 0, height: 0, scale: 0.95 }}
+              animate={{ 
+                opacity: 1, 
+                height: "auto", 
+                scale: 1,
+                transition: {
+                  duration: 0.5,
+                  ease: [0.4, 0, 0.2, 1],
+                  opacity: { duration: 0.3, delay: 0.1 },
+                  height: { duration: 0.5 },
+                  scale: { duration: 0.4, delay: 0.1 }
+                }
+              }}
+              exit={{ 
+                opacity: 0, 
+                height: 0, 
+                scale: 0.95,
+                transition: {
+                  duration: 0.3,
+                  ease: [0.4, 0, 0.6, 1]
+                }
+              }}
               className="md:hidden bg-black/10 backdrop-blur-md rounded-b-4xl px-2 overflow-hidden"
             >
               <div className="flex flex-col space-y-8 py-8">
-                {navItems.map((item) => (
-                  <a
+                {navItems.map((item, index) => (
+                  <motion.a
                     key={item.label}
                     href={item.href}
                     onClick={() => setIsOpen(false)}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ 
+                      opacity: 1, 
+                      y: 0,
+                      transition: {
+                        delay: 0.2 + (index * 0.1),
+                        duration: 0.3,
+                        ease: "easeOut"
+                      }
+                    }}
                     className="text-black hover:text-[#5E67E6] text-base font-light text-center transition-colors duration-200"
                   >
                     {item.label}
-                  </a>
+                  </motion.a>
                 ))}
-                <div className="flex justify-center pt-2">
+                <motion.div 
+                  className="flex justify-center pt-2"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ 
+                    opacity: 1, 
+                    y: 0,
+                    transition: {
+                      delay: 0.6,
+                      duration: 0.3,
+                      ease: "easeOut"
+                    }
+                  }}
+                >
                   <motion.a
                     href="#contact"
                     onClick={() => setIsOpen(false)}
@@ -184,7 +228,7 @@ const Navbar = () => {
                   >
                     <span>Book Appointment</span>
                   </motion.a>
-                </div>
+                </motion.div>
               </div>
             </motion.div>
           )}
