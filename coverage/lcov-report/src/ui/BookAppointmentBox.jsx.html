@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">45.45% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>5/11</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">66.66% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>2/3</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -113,10 +113,40 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -165,28 +195,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { motion } from 'framer-motion';
 &nbsp;
-const BookAppointmentBox = ({ windowWidth, delay = <span class="branch-0 cbranch-no" title="branch not covered" >0.9 </span>}) =&gt; {
+const BookAppointmentBox = ({ windowWidth, delay = 0.9 }) =&gt; {
     return (
         &lt;motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay, duration: 0.5 }}
+            whileTap={{
+                scale: 0.95,
+                transition: { duration: 0.1, type: "spring", stiffness: 400 }
+            }}
+            whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.2 }
+            }}
+            onClick={<span class="fstat-no" title="function not covered" >()</span> =&gt; {
+                // Add your booking logic here
+<span class="cstat-no" title="statement not covered" >                console.log('Book appointment clicked');</span>
+            }}
             style={{
                 backgroundColor: '#a9eaf7',
-                borderRadius: windowWidth &lt; 768 ? <span class="branch-0 cbranch-no" title="branch not covered" >'2.5rem' </span>: '3rem', // Increased from 1.5rem to 2.5rem
-                padding: windowWidth &lt; 768 ? <span class="branch-0 cbranch-no" title="branch not covered" >'1.5rem' </span>: '1.75rem',
+                borderRadius: windowWidth &lt; 768 ? '2.5rem' : '3rem', // Increased from 1.5rem to 2.5rem
+                padding: windowWidth &lt; 768 ? '1.5rem' : '1.75rem',
                 cursor: 'pointer',
                 position: 'relative',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: windowWidth &lt; 768 ? <span class="branch-0 cbranch-no" title="branch not covered" >'100px' </span>: '200px',
-                flex: windowWidth &lt; 768 ? <span class="branch-0 cbranch-no" title="branch not covered" >'1' </span>: '1.5', // 1.5x width on desktop
+                minHeight: windowWidth &lt; 768 ? '70px' : '200px',
+                flex: windowWidth &lt; 768 ? '1' : '1.5', // 1.5x width on desktop
             }}
         &gt;
             &lt;h3 style={{
                 fontFamily: 'Quicksand, sans-serif',
-                fontSize: windowWidth &lt; 768 ? <span class="branch-0 cbranch-no" title="branch not covered" >'1.1rem' </span>: '1.25rem',
+                fontSize: windowWidth &lt; 768 ? '1.3rem' : '1.25rem',
                 fontWeight: '600',
                 color: '#2d2d2d',
                 textAlign: 'center',
@@ -194,20 +236,23 @@ const BookAppointmentBox = ({ windowWidth, delay = <span class="branch-0 cbranch
             }}&gt;
                 Book an Appointment
             &lt;/h3&gt;
-            &lt;div style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '1rem',
-                width: '2rem',
-                height: '2rem',
-                backgroundColor: 'white',
-                borderRadius: '100%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center'
-            }}&gt;
-                &lt;span style={{ fontSize: '1rem', color: '#2d2d2d' }}&gt;↗&lt;/span&gt;
-            &lt;/div&gt;
+            {/* Arrow icon only on desktop */}
+            {windowWidth &gt;= 768 &amp;&amp; (
+                &lt;div style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    width: '2rem',
+                    height: '2rem',
+                    backgroundColor: 'white',
+                    borderRadius: '100%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}&gt;
+                    &lt;span style={{ fontSize: '1rem', color: '#2d2d2d' }}&gt;↗&lt;/span&gt;
+                &lt;/div&gt;
+            )}
         &lt;/motion.div&gt;
     );
 };
@@ -220,7 +265,7 @@ export default BookAppointmentBox;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-07-23T08:07:29.538Z
+                at 2025-07-24T05:18:57.898Z
             </div>
         <script src="../../prettify.js"></script>
         <script>
