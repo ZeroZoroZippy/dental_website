@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const GalleryCard = ({ windowWidth, category, description, delay, gridArea, size = "small" }) => {
+const GalleryCard = ({ windowWidth, category, description, delay, gridArea, size = "small", image }) => {
     const [isHovered, setIsHovered] = useState(false);
     const isMobile = windowWidth < 768;
 
@@ -65,7 +65,7 @@ const GalleryCard = ({ windowWidth, category, description, delay, gridArea, size
                 flexDirection: 'column'
             }}
         >
-            {/* Image Placeholder Container */}
+            {/* Image Container */}
             <div style={{
                 position: 'relative',
                 width: '100%',
@@ -77,15 +77,39 @@ const GalleryCard = ({ windowWidth, category, description, delay, gridArea, size
                 justifyContent: 'center',
                 minHeight: size === 'large' ? '200px' : '120px'
             }}>
-                {/* Placeholder Content */}
+                {/* Actual Image */}
+                {image ? (
+                    <img
+                        src={image}
+                        alt={`${category} image`}
+                        style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                            objectPosition: 'center'
+                        }}
+                        onError={(e) => {
+                            // Fallback to placeholder if image fails to load
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                        }}
+                    />
+                ) : null}
+                
+                {/* Fallback Placeholder Content */}
                 <div style={{
-                    display: 'flex',
+                    display: image ? 'none' : 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
                     justifyContent: 'center',
                     padding: '1rem',
                     textAlign: 'center',
-                    opacity: 0.4
+                    opacity: 0.4,
+                    position: image ? 'absolute' : 'static',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0
                 }}>
                     <div style={{
                         width: size === 'large' ? '60px' : size === 'tall' ? '50px' : '40px',

@@ -242,6 +242,7 @@ const Gallery = () => {
                             windowWidth={windowWidth}
                             category={galleryItems[0].category}
                             description={galleryItems[0].description}
+                            image={galleryItems[0].image}
                             delay={1.2}
                             gridArea={isMobile ? "1 / 1 / 3 / 3" : "1 / 1 / 3 / 3"}
                             size="large"
@@ -252,6 +253,7 @@ const Gallery = () => {
                             windowWidth={windowWidth}
                             category={galleryItems[1].category}
                             description={galleryItems[1].description}
+                            image={galleryItems[1].image}
                             delay={1.3}
                             gridArea={isMobile ? "3 / 1 / 4 / 2" : "1 / 3 / 3 / 4"}
                             size={isMobile ? "small" : "medium"}
@@ -262,6 +264,7 @@ const Gallery = () => {
                             windowWidth={windowWidth}
                             category={galleryItems[2].category}
                             description={galleryItems[2].description}
+                            image={galleryItems[2].image}
                             delay={1.4}
                             gridArea={isMobile ? "3 / 2 / 4 / 3" : "1 / 4 / 2 / 5"}
                             size="small"
@@ -272,6 +275,7 @@ const Gallery = () => {
                             windowWidth={windowWidth}
                             category={galleryItems[3].category}
                             description={galleryItems[3].description}
+                            image={galleryItems[3].image}
                             delay={1.5}
                             gridArea={isMobile ? "4 / 1 / 5 / 2" : "2 / 4 / 3 / 5"}
                             size="small"
@@ -282,6 +286,7 @@ const Gallery = () => {
                             windowWidth={windowWidth}
                             category={galleryItems[4].category}
                             description={galleryItems[4].description}
+                            image={galleryItems[4].image}
                             delay={1.6}
                             gridArea={isMobile ? "4 / 2 / 5 / 3" : "3 / 1 / 4 / 3"}
                             size={isMobile ? "small" : "medium-horizontal"}
@@ -292,6 +297,7 @@ const Gallery = () => {
                             windowWidth={windowWidth}
                             category={galleryItems[5].category}
                             description={galleryItems[5].description}
+                            image={galleryItems[5].image}
                             delay={1.7}
                             gridArea={isMobile ? "5 / 1 / 6 / 3" : "3 / 3 / 4 / 5"}
                             size={isMobile ? "medium-horizontal" : "medium-horizontal"}
