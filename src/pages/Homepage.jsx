@@ -4,6 +4,7 @@ import About from '../sections/About';
 import Banner from '../sections/Banner';
 import Services from '../sections/Services';
 import Gallery from '../sections/Gallery';
+import Testimonials from '../sections/Testimonials';
 
 const Homepage = () => {
   return (
@@ -14,6 +15,7 @@ const Homepage = () => {
       <Banner />
       <Services />
       <Gallery />
+      <Testimonials />
     </div>
   );
 };
