@@ -21,7 +21,7 @@ const About = () => {
     const isMobile = windowWidth < 768;
 
     return (
-        <div style={{
+        <div id="about" style={{
             paddingTop: windowWidth < 768 ? '0.5rem' : '0.5rem',
             position: 'relative',
             width: '100%'
