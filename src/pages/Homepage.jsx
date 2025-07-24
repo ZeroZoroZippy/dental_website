@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import Hero from '../sections/Hero';
 import About from '../sections/About';
 import Banner from '../sections/Banner';
@@ -16,6 +17,7 @@ const Homepage = () => {
       <Services />
       <Gallery />
       <Testimonials />
+      <Footer />
     </div>
   );
 };

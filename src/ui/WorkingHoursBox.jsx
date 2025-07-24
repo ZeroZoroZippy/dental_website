@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import WorkingHours from './WorkingHours';
 
 const WorkingHoursBox = ({ windowWidth, delay = 0.8 }) => {
     return (
@@ -27,21 +28,14 @@ const WorkingHoursBox = ({ windowWidth, delay = 0.8 }) => {
             }}>
                 Working Hours
             </h3>
-            <div style={{ 
-                fontFamily: 'Quicksand, sans-serif', 
-                fontSize: windowWidth < 768 ? '0.85rem' : '0.8rem', 
-                textAlign: 'left', 
-                color: '#666' 
-            }}>
-                <div style={{ marginBottom: '0.25rem' }}>
-                    <span style={{ fontWeight: '500' }}>Monday - Friday</span>
-                    <span style={{ float: 'right' }}>9AM - 9PM</span>
-                </div>
-                <div>
-                    <span style={{ fontWeight: '500' }}>Saturday, Sunday</span>
-                    <span style={{ float: 'right' }}>10AM - 6PM</span>
-                </div>
-            </div>
+            <WorkingHours 
+                style={{ 
+                    fontFamily: 'Quicksand, sans-serif', 
+                    fontSize: windowWidth < 768 ? '0.85rem' : '0.8rem', 
+                    textAlign: 'left', 
+                    color: '#666' 
+                }}
+            />
         </motion.div>
     );
 };
