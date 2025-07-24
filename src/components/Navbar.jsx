@@ -29,6 +29,16 @@ const Navbar = () => {
     { label: 'Testimonials', href: '#testimonials' },
   ];
 
+  const handleSmoothScroll = (e, href) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <motion.nav
       initial={{ opacity: 0, y: -50 }}
@@ -80,6 +90,7 @@ const Navbar = () => {
                 <motion.a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   initial="rest"
                   animate={{
                     opacity: 1,
@@ -192,7 +203,7 @@ const Navbar = () => {
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    onClick={() => setIsOpen(false)}
+                    onClick={(e) => handleSmoothScroll(e, item.href)}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ 
                       opacity: 1, 

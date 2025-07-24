@@ -75,7 +75,7 @@ const Gallery = () => {
     ];
 
     return (
-        <div style={{
+        <div id="gallery" style={{
             paddingTop: windowWidth < 768 ? '0.5rem' : '0.5rem',
             position: 'relative',
             width: '100%'
