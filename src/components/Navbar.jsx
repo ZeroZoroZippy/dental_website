@@ -23,8 +23,8 @@ const Navbar = () => {
   // We've removed the scroll detection effect to keep the navbar intact
 
   const navItems = [
-    { label: 'Services', href: '#services' },
     { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
     { label: 'Gallery', href: '#gallery' },
     { label: 'Testimonials', href: '#testimonials' },
   ];
