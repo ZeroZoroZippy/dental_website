@@ -152,13 +152,7 @@ const About = () => {
                         scrollbarWidth: 'none',
                         msOverflowStyle: 'none',
                         paddingBottom: isMobile ? '0.5rem' : '0',
-                        // Ensure cards don't get cut off on mobile
-                        paddingRight: isMobile ? '1.25rem' : '0',
-                        // Hide scrollbar for webkit browsers
-                        WebkitScrollbarWidth: 'none',
-                        '&::-webkit-scrollbar': {
-                            display: 'none'
-                        }
+                        paddingRight: isMobile ? '1.25rem' : '0'
                     }}
                     // Add CSS to hide scrollbar
                     className="cards-container"
@@ -192,7 +186,7 @@ const About = () => {
             </motion.div>
 
             {/* Add CSS styles */}
-            <style jsx>{`
+            <style jsx="true">{`
                 .cards-container {
                     -webkit-overflow-scrolling: touch;
                 }
