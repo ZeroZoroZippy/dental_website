@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import ServiceCard from '../ui/ServiceCard';
 import { MdArrowOutward } from "react-icons/md";
 import cosmetic_care from "../assets/cosmetic_care.png"
@@ -12,6 +13,7 @@ import speciality from "../assets/speciality_service.png"
 const Services = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -27,7 +29,7 @@ const Services = () => {
     const isMobile = windowWidth < 768;
 
     return (
-        <div id="services" style={{
+        <div id="services-section" style={{
             paddingTop: windowWidth < 768 ? '0.5rem' : '0.5rem',
             position: 'relative',
             width: '100%'
@@ -136,6 +138,7 @@ const Services = () => {
                             transition={{ delay: 0.8, duration: 0.5 }}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
+                            onClick={() => navigate('/services')}
                             style={{
                                 backgroundColor: '#2d2d2d',
                                 color: '#ffffff',

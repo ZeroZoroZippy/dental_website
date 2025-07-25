@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect  } from 'react';
 import { motion } from 'framer-motion';
 import { MdArrowForward } from 'react-icons/md';
 
@@ -14,12 +14,36 @@ const AppointmentForm = ({ onSubmit, initialData }) => {
     const [errors, setErrors] = useState({});
 
     const services = [
-        'Preventive Care',
-        'Restorative Dentistry',
-        'Cosmetic Care',
-        'Orthodontics',
-        'Emergency Care',
-        'Specialty Services'
+        'Preventive Care - Regular Dental Check-up',
+        'Preventive Care - Professional Teeth Cleaning',
+        'Preventive Care - Fluoride Treatment',
+        'Preventive Care - Dental X-rays',
+        'Preventive Care - Oral Cancer Screening',
+        'Restorative Dentistry - Dental Fillings (Composite)',
+        'Restorative Dentistry - Dental Crown',
+        'Restorative Dentistry - Dental Bridge',
+        'Restorative Dentistry - Dental Implant',
+        'Restorative Dentistry - Root Canal Treatment',
+        'Cosmetic Dentistry - Teeth Whitening (In-office)',
+        'Cosmetic Dentistry - Teeth Whitening (Take-home)',
+        'Cosmetic Dentistry - Dental Veneers',
+        'Cosmetic Dentistry - Dental Bonding',
+        'Cosmetic Dentistry - Smile Makeover Consultation',
+        'Orthodontics - Metal Braces',
+        'Orthodontics - Ceramic Braces',
+        'Orthodontics - Clear Aligners (Invisalign)',
+        'Orthodontics - Retainers',
+        'Orthodontics - Orthodontic Consultation',
+        'Specialty Services - Periodontal Treatment',
+        'Specialty Services - Oral Surgery',
+        'Specialty Services - TMJ Treatment',
+        'Specialty Services - Sleep Apnea Appliance',
+        'Specialty Services - Pediatric Dentistry',
+        'Emergency Care - Emergency Consultation',
+        'Emergency Care - Toothache Treatment',
+        'Emergency Care - Broken Tooth Repair',
+        'Emergency Care - Emergency Extraction',
+        'Emergency Care - Dental Trauma Care'
     ];
 
     const handleChange = (e) => {
@@ -69,6 +93,15 @@ const AppointmentForm = ({ onSubmit, initialData }) => {
             onSubmit(formData);
         }
     };
+
+    useEffect(() => {
+        if (initialData && Object.keys(initialData).length > 0) {
+            setFormData(prev => ({
+                ...prev,
+                ...initialData
+            }));
+        }
+    }, [initialData]);
 
     return (
         <motion.form

@@ -1,16 +1,23 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css'
 import Homepage from './pages/Homepage'
+import ServicesPage from './pages/ServicesPage'
 import { useLenis } from './hooks/useLenis'
 import { BookingProvider } from './components/BookingProvider'
 
 function App() {
   useLenis();
-  
+
   return (
     <BookingProvider>
-      <div className="App">
-        <Homepage />
-      </div>
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/services" element={<ServicesPage />} />
+          </Routes>
+        </div>
+      </Router>
     </BookingProvider>
   )
 }
