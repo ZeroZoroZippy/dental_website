@@ -78,7 +78,7 @@ const Footer = () => {
                             <div className="w-12 h-12 rounded-full bg-[#1FC8EA]/20 flex items-center justify-center mr-3">
                                 <TbDental className="w-7 h-7 text-[#1FC8EA]" />
                             </div>
-                            <h3 className="text-white text-xl font-quicksand-semibold">DentalCare</h3>
+                            <h3 className="text-white text-xl font-unbounded-semibold">DentalCare</h3>
                         </div>
                         <p className="text-gray-300 font-quicksand-light text-sm leading-relaxed mb-4">
                             Providing exceptional dental care with a gentle touch. Your smile is our priority, and your comfort is our commitment.
@@ -232,7 +232,7 @@ const Footer = () => {
                         transition={{ duration: 0.2 }}
                         className="text-gray-500 font-quicksand-light text-md cursor-default"
                     >
-                        Made with ❤️ by <span className="text-[#1FC8EA] font-quicksand-medium">Yuvaan V.</span>
+                        Made with ✨ by <span className="text-[#1FC8EA] font-quicksand-medium">Yuvaan V.</span>
                     </motion.p>
                 </motion.div>
             </motion.div>
