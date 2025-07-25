@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-const BookAppointmentBox = ({ windowWidth, delay = 0.9 }) => {
+const BookAppointmentBox = ({ windowWidth, delay = 0.9, onClick }) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -14,10 +14,7 @@ const BookAppointmentBox = ({ windowWidth, delay = 0.9 }) => {
                 scale: 1.02,
                 transition: { duration: 0.2 }
             }}
-            onClick={() => {
-                // Add your booking logic here
-                console.log('Book appointment clicked');
-            }}
+            onClick={onClick}
             style={{
                 backgroundColor: '#a9eaf7',
                 borderRadius: windowWidth < 768 ? '2.5rem' : '3rem', // Increased from 1.5rem to 2.5rem

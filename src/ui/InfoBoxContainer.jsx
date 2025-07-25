@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import BookAppointmentBox from './BookAppointmentBox';
+import { useBooking } from '../components/BookingProvider';
 import WorkingHoursBox from './WorkingHoursBox';
 import OpenNowBox from './OpenNowBox';
 
 const InfoBoxContainer = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const { openModal } = useBooking();
 
     // Handle window resize for responsive behavior
     useEffect(() => {
@@ -34,7 +36,7 @@ const InfoBoxContainer = () => {
                     <div style={{
                         width: '100%'
                     }}>
-                        <BookAppointmentBox windowWidth={windowWidth} delay={0.6} />
+                        <BookAppointmentBox windowWidth={windowWidth} delay={0.6} onClick={openModal} />
                     </div>
 
                     {/* Bottom: Working Hours (left) + Open Now (right) */}
@@ -80,7 +82,7 @@ const InfoBoxContainer = () => {
                         flex: '1.5',
                         minWidth: '250px'
                     }}>
-                        <BookAppointmentBox windowWidth={windowWidth} delay={0.9} />
+                        <BookAppointmentBox windowWidth={windowWidth} delay={0.9} onClick={openModal} />
                     </div>
                 </>
             )}

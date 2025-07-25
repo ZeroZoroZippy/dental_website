@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MdArrowOutward } from "react-icons/md";
 
-const BookAppointmentButton = ({ isMobile }) => {
+const BookAppointmentButton = ({ isMobile, onClick }) => {
     const [isHovered, setIsHovered] = useState(false);
 
     return (
@@ -13,6 +13,7 @@ const BookAppointmentButton = ({ isMobile }) => {
             transition={{ delay: 0.9, duration: 0.5 }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
+            onClick={onClick}
             style={{
                 backgroundColor: '#ffffff',
                 color: '#000000',
