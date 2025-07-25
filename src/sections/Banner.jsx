@@ -4,9 +4,11 @@ import { motion } from 'framer-motion';
 import banner_desktop from '../assets/banner_desktop.png';
 import banner_mobile from '../assets/banner_mobile.png';
 import BookAppointmentButton from '../ui/BookAppointment'; // Adjust path as needed
+import { useBooking } from '../components/BookingProvider';
 
 const Banner = ({ height = '350px', mobileHeight = '750px', children }) => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+    const { openModal } = useBooking();
 
     useEffect(() => {
         const handleResize = () => {
@@ -104,7 +106,7 @@ const Banner = ({ height = '350px', mobileHeight = '750px', children }) => {
                             Schedule your visit with us today!
                         </motion.p>
 
-                        <BookAppointmentButton isMobile={isMobile} />
+                        <BookAppointmentButton isMobile={isMobile} onClick={openModal} />
                     </div>
                 </div>
                 {children}

@@ -3,10 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { TbDental } from "react-icons/tb";
+import { useBooking } from './BookingProvider';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const { openModal } = useBooking();
 
   // Handle window resize for responsive behavior
   useEffect(() => {
@@ -149,12 +151,12 @@ const Navbar = () => {
                 }}
                 className="overflow-hidden"
               >
-                <motion.a
-                  href="#contact"
-                  className="bg-[#2d2d2d] text-white px-8 py-2 rounded-4xl text-base font-light block whitespace-nowrap"
+                <motion.button
+                  onClick={openModal}
+                  className="bg-[#2d2d2d] text-white px-8 py-2 rounded-4xl text-base font-light block whitespace-nowrap hover:bg-gray-700 transition-colors cursor-pointer"
                 >
                   <span>Book Appointment</span>
-                </motion.a>
+                </motion.button>
               </motion.div>
             </div>
 
@@ -232,13 +234,15 @@ const Navbar = () => {
                     }
                   }}
                 >
-                  <motion.a
-                    href="#contact"
-                    onClick={() => setIsOpen(false)}
-                    className="bg-[#2d2d2d] text-white px-8 py-2 rounded-4xl text-base font-light"
+                  <motion.button
+                    onClick={() => {
+                      setIsOpen(false);
+                      openModal();
+                    }}
+                    className="bg-[#2d2d2d] text-white px-8 py-2 rounded-4xl text-base font-light hover:bg-gray-700 transition-colors cursor-pointer"
                   >
                     <span>Book Appointment</span>
-                  </motion.a>
+                  </motion.button>
                 </motion.div>
               </div>
             </motion.div>

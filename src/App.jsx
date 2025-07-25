@@ -1,14 +1,17 @@
 import './App.css'
 import Homepage from './pages/Homepage'
 import { useLenis } from './hooks/useLenis'
+import { BookingProvider } from './components/BookingProvider'
 
 function App() {
   useLenis();
   
   return (
-    <div className="App">
-      <Homepage />
-    </div>
+    <BookingProvider>
+      <div className="App">
+        <Homepage />
+      </div>
+    </BookingProvider>
   )
 }
 
