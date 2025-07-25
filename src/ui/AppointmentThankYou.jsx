@@ -61,6 +61,7 @@ const AppointmentThankYou = ({ formData, selectedDateTime, onClose }) => {
                     <div className="flex justify-between">
                         <span className="font-quicksand-medium text-gray-600">Service:</span>
                         <span className="font-quicksand text-gray-800 text-right">{formData.serviceSelected}</span>
+                    </div>
                     
                     <div className="flex justify-between">
                         <span className="font-quicksand-medium text-gray-600">Date & Time:</span>
