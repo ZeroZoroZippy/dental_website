@@ -3,7 +3,7 @@ import { IoMdCheckboxOutline } from "react-icons/io";
 import { MdArrowOutward } from "react-icons/md";
 import { useState } from 'react';
 
-const ServiceCard = ({ windowWidth, title, checkPoints, image, delay = 1.2 }) => {
+const ServiceCard = ({ windowWidth, title, checkPoints, image, delay = 1.2, onExploreMore }) => {
     const isMobile = windowWidth < 768;
     const [isHovered, setIsHovered] = useState(false);
 
@@ -130,6 +130,7 @@ const ServiceCard = ({ windowWidth, title, checkPoints, image, delay = 1.2 }) =>
                         }}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
+                        onClick={() => onExploreMore && onExploreMore(title)}
                     >
                         <span style={{
                             fontFamily: 'Quicksand, sans-serif',

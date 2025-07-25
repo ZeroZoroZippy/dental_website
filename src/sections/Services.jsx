@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import Lenis from 'lenis';
 import ServiceCard from '../ui/ServiceCard';
 import { MdArrowOutward } from "react-icons/md";
 import cosmetic_care from "../assets/cosmetic_care.png"
@@ -14,6 +15,47 @@ const Services = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
+    const lenisRef = useRef(null);
+
+    const handleExploreMore = (categoryTitle) => {
+        // Create a mapping for category navigation
+        const categoryMap = {
+            'Preventive Care': 'preventive',
+            'Restorative Dentistry': 'restorative',
+            'Cosmetic Dentistry': 'cosmetic',
+            'Specialty Services': 'specialty',
+            'Orthodontics': 'orthodontics',
+            'Emergency Care': 'emergency'
+        };
+
+        const categoryId = categoryMap[categoryTitle];
+        navigate(`/services#${categoryId}`);
+
+        // Use Lenis for smooth scrolling
+        setTimeout(() => {
+            if (lenisRef.current) {
+                lenisRef.current.scrollTo(0, { immediate: true });
+                setTimeout(() => {
+                    const categoryElement = document.getElementById(categoryId);
+                    if (categoryElement && lenisRef.current) {
+                        lenisRef.current.scrollTo(categoryElement, {
+                            offset: -100,
+                            duration: 1.5
+                        });
+                    }
+                }, 300);
+            } else {
+                // Fallback to native scrolling
+                window.scrollTo({ top: 0, behavior: 'instant' });
+                setTimeout(() => {
+                    const categoryElement = document.getElementById(categoryId);
+                    if (categoryElement) {
+                        categoryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 200);
+            }
+        }, 100);
+    };
 
     useEffect(() => {
         const handleResize = () => {
@@ -24,6 +66,30 @@ const Services = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+    }, []);
+
+    // Get Lenis instance
+    useEffect(() => {
+        // Access the global Lenis instance if it exists
+        const checkLenis = () => {
+            if (window.lenis) {
+                lenisRef.current = window.lenis;
+            } else {
+                // If no global instance, create a temporary one for this component
+                lenisRef.current = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smooth: true,
+                });
+            }
+        };
+
+        checkLenis();
+
+        // Check again after a short delay in case Lenis is still initializing
+        const timeout = setTimeout(checkLenis, 100);
+
+        return () => clearTimeout(timeout);
     }, []);
 
     const isMobile = windowWidth < 768;
@@ -138,7 +204,17 @@ const Services = () => {
                             transition={{ delay: 0.8, duration: 0.5 }}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
-                            onClick={() => navigate('/services')}
+                            onClick={() => {
+                                navigate('/services');
+                                // Use Lenis for smooth scroll to top after navigation
+                                setTimeout(() => {
+                                    if (lenisRef.current) {
+                                        lenisRef.current.scrollTo(0, { duration: 1.2 });
+                                    } else {
+                                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                                    }
+                                }, 100);
+                            }}
                             style={{
                                 backgroundColor: '#2d2d2d',
                                 color: '#ffffff',
@@ -206,6 +282,7 @@ const Services = () => {
                                 "Preventive treatments"
                             ]}
                             delay={1.2}
+                            onExploreMore={handleExploreMore}
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
@@ -217,6 +294,7 @@ const Services = () => {
                                 "Tooth restoration"
                             ]}
                             delay={1.4}
+                            onExploreMore={handleExploreMore}
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
@@ -228,6 +306,7 @@ const Services = () => {
                                 "Smile makeovers"
                             ]}
                             delay={1.6}
+                            onExploreMore={handleExploreMore}
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
@@ -239,6 +318,7 @@ const Services = () => {
                                 "Periodontal treatments"
                             ]}
                             delay={1.8}
+                            onExploreMore={handleExploreMore}
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
@@ -250,6 +330,7 @@ const Services = () => {
                                 "Retainers"
                             ]}
                             delay={2.0}
+                            onExploreMore={handleExploreMore}
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
@@ -261,6 +342,7 @@ const Services = () => {
                                 "Urgent extractions"
                             ]}
                             delay={2.2}
+                            onExploreMore={handleExploreMore}
                         />
                     </div>
                 </div>

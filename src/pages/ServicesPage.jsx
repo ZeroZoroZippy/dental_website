@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { MdArrowBack, MdArrowOutward } from 'react-icons/md';
+import Lenis from 'lenis';
+import { MdArrowBack } from 'react-icons/md';
 import { useBooking } from '../components/BookingProvider';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -18,6 +19,7 @@ const ServicesPage = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const { openModal } = useBooking();
     const navigate = useNavigate();
+    const lenisRef = useRef(null);
 
     useEffect(() => {
         const handleResize = () => {
@@ -28,6 +30,60 @@ const ServicesPage = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+    }, []);
+
+    // Get Lenis instance
+    useEffect(() => {
+        // Access the global Lenis instance if it exists
+        const checkLenis = () => {
+            if (window.lenis) {
+                lenisRef.current = window.lenis;
+            } else {
+                // If no global instance, create a temporary one for this component
+                lenisRef.current = new Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    smooth: true,
+                });
+            }
+        };
+        
+        checkLenis();
+        
+        // Check again after a short delay in case Lenis is still initializing
+        const timeout = setTimeout(checkLenis, 100);
+        
+        return () => clearTimeout(timeout);
+    }, []);
+
+    // Handle hash navigation with Lenis
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            // Wait for component to render, then scroll to category using Lenis
+            setTimeout(() => {
+                const categoryElement = document.getElementById(hash);
+                if (categoryElement) {
+                    if (lenisRef.current) {
+                        lenisRef.current.scrollTo(categoryElement, { 
+                            offset: -100,
+                            duration: 1.5
+                        });
+                    } else {
+                        categoryElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            }, 500);
+        } else {
+            // If no hash, scroll to top using Lenis
+            setTimeout(() => {
+                if (lenisRef.current) {
+                    lenisRef.current.scrollTo(0, { duration: 1.2 });
+                } else {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }, 100);
+        }
     }, []);
 
     const isMobile = windowWidth < 768;
@@ -166,6 +222,7 @@ const ServicesPage = () => {
                     {serviceCategories.map((category, categoryIndex) => (
                         <motion.div
                             key={category.id}
+                            id={category.id}
                             initial={{ opacity: 0, y: 40 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: categoryIndex * 0.1 }}
