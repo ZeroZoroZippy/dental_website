@@ -55,23 +55,22 @@ const AppointmentThankYou = ({ formData, selectedDateTime, onClose }) => {
                     
                     <div className="flex justify-between">
                         <span className="font-quicksand-medium text-gray-600">Mobile:</span>
-                        <span className="font-quicksand text-gray-800">{formData.mobileNumber}</span>
+                        <span className="font-quicksand text-gray-800 text-right">{formData.mobileNumber}</span>
                     </div>
                     
                     <div className="flex justify-between">
                         <span className="font-quicksand-medium text-gray-600">Service:</span>
-                        <span className="font-quicksand text-gray-800">{formData.serviceSelected}</span>
-                    </div>
+                        <span className="font-quicksand text-gray-800 text-right">{formData.serviceSelected}</span>
                     
                     <div className="flex justify-between">
                         <span className="font-quicksand-medium text-gray-600">Date & Time:</span>
-                        <span className="font-quicksand text-gray-800">{selectedDateTime.dateTimeString}</span>
+                        <span className="font-quicksand text-gray-800 text-right">{selectedDateTime.dateTimeString}</span>
                     </div>
                     
                     {formData.message && (
                         <div className="pt-2 border-t border-gray-200">
                             <span className="font-quicksand-medium text-gray-600">Message:</span>
-                            <p className="font-quicksand text-gray-800 mt-1">{formData.message}</p>
+                            <p className="font-quicksand text-gray-800 mt-1 text-right">{formData.message}</p>
                         </div>
                     )}
                 </div>
