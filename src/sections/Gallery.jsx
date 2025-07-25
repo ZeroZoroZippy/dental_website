@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import { MdArrowOutward } from "react-icons/md";
 import GalleryCard from '../ui/GalleryCard';
 
@@ -14,6 +15,7 @@ import emergency from '../assets/Emergency_Care.png';
 const Gallery = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
     const [isHovered, setIsHovered] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleResize = () => {
@@ -186,6 +188,7 @@ const Gallery = () => {
                             transition={{ delay: 0.8, duration: 0.5 }}
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
+                            onClick={() => navigate('/gallery')}
                             style={{
                                 backgroundColor: '#2d2d2d',
                                 color: '#ffffff',

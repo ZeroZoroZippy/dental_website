@@ -65,7 +65,14 @@ const Navbar = () => {
         if (location.pathname === '/') {
           const targetElement = document.getElementById('services-section');
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            if (window.lenis) {
+              window.lenis.scrollTo(targetElement, { 
+                offset: -100,
+                duration: 1.5
+              });
+            } else {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
           }
         } else {
           // If we're on another page, navigate to services page
@@ -80,15 +87,29 @@ const Navbar = () => {
             const targetId = item.href.replace('#', '');
             const targetElement = document.getElementById(targetId);
             if (targetElement) {
-              targetElement.scrollIntoView({ behavior: 'smooth' });
+              if (window.lenis) {
+                window.lenis.scrollTo(targetElement, { 
+                  offset: -100,
+                  duration: 1.5
+                });
+              } else {
+                targetElement.scrollIntoView({ behavior: 'smooth' });
+              }
             }
           }, 300);
         } else {
-          // We're on homepage, just scroll
+          // We're on homepage, just scroll using Lenis
           const targetId = item.href.replace('#', '');
           const targetElement = document.getElementById(targetId);
           if (targetElement) {
-            targetElement.scrollIntoView({ behavior: 'smooth' });
+            if (window.lenis) {
+              window.lenis.scrollTo(targetElement, { 
+                offset: -100,
+                duration: 1.5
+              });
+            } else {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
           }
         }
       }
