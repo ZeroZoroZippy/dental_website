@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useBookingModal } from '../hooks/useBookingModal';
 import BookAppointmentModal from './BookAppointmentModal';
 
@@ -13,12 +13,27 @@ export const useBooking = () => {
 };
 
 export const BookingProvider = ({ children }) => {
-    const { isModalOpen, openModal, closeModal } = useBookingModal();
+    const { isModalOpen, openModal: openModalBase, closeModal } = useBookingModal();
+    const [prefilledData, setPrefilledData] = useState({});
+
+    const openModal = (initialData = {}) => {
+        setPrefilledData(initialData);
+        openModalBase();
+    };
+
+    const handleCloseModal = () => {
+        setPrefilledData({});
+        closeModal();
+    };
 
     return (
         <BookingContext.Provider value={{ openModal }}>
             {children}
-            <BookAppointmentModal isOpen={isModalOpen} onClose={closeModal} />
+            <BookAppointmentModal 
+                isOpen={isModalOpen} 
+                onClose={handleCloseModal}
+                prefilledData={prefilledData}
+            />
         </BookingContext.Provider>
     );
 };

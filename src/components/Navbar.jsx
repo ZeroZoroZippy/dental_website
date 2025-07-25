@@ -1,6 +1,7 @@
 // src/components/Navbar.jsx
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { TbDental } from "react-icons/tb";
 import { useBooking } from './BookingProvider';
@@ -9,11 +10,17 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { openModal } = useBooking();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Handle window resize for responsive behavior
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
+      // Close mobile menu on resize to desktop
+      if (window.innerWidth >= 768) {
+        setIsOpen(false);
+      }
     };
 
     window.addEventListener('resize', handleResize);
@@ -21,6 +28,20 @@ const Navbar = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  // Close mobile menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (isOpen && !event.target.closest('nav')) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isOpen]);
 
   // We've removed the scroll detection effect to keep the navbar intact
 
@@ -31,14 +52,54 @@ const Navbar = () => {
     { label: 'Testimonials', href: '#testimonials' },
   ];
 
-  const handleSmoothScroll = (e, href) => {
+  const handleNavClick = (e, item) => {
     e.preventDefault();
-    const targetId = href.replace('#', '');
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
-    }
+    
+    // Close mobile menu immediately
     setIsOpen(false);
+    
+    // Add small delay for mobile menu animation
+    const executeNavigation = () => {
+      if (item.label === 'Services') {
+        // If we're on homepage, scroll to services section
+        if (location.pathname === '/') {
+          const targetElement = document.getElementById('services-section');
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        } else {
+          // If we're on another page, navigate to services page
+          navigate('/services');
+        }
+      } else {
+        // For other nav items, if we're not on homepage, go to homepage first
+        if (location.pathname !== '/') {
+          navigate('/');
+          // Wait a bit for navigation to complete, then scroll
+          setTimeout(() => {
+            const targetId = item.href.replace('#', '');
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+              targetElement.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 300);
+        } else {
+          // We're on homepage, just scroll
+          const targetId = item.href.replace('#', '');
+          const targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      }
+    };
+
+    // Execute navigation with slight delay on mobile
+    if (windowWidth < 768) {
+      setTimeout(executeNavigation, 100);
+    } else {
+      executeNavigation();
+    }
   };
 
   return (
@@ -67,11 +128,11 @@ const Navbar = () => {
         <div className="flex items-center h-16 justify-between px-1">
           {/* Logo */}
           <div className="flex-shrink-0 ml-3">
-            <a href="/" className="flex items-center">
+            <button onClick={() => navigate('/')} className="flex items-center">
               <div className="w-12 h-12 rounded-full bg-[#1FC8EA]/20 flex items-center justify-center">
                 <TbDental className="w-7 h-7 text-black" />
               </div>
-            </a>
+            </button>
           </div>
 
           {/* Mobile space filler */}
@@ -92,7 +153,7 @@ const Navbar = () => {
                 <motion.a
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => handleSmoothScroll(e, item.href)}
+                  onClick={(e) => handleNavClick(e, item)}
                   initial="rest"
                   animate={{
                     opacity: 1,
@@ -205,7 +266,7 @@ const Navbar = () => {
                   <motion.a
                     key={item.label}
                     href={item.href}
-                    onClick={(e) => handleSmoothScroll(e, item.href)}
+                    onClick={(e) => handleNavClick(e, item)}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ 
                       opacity: 1, 

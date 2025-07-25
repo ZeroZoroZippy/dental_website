@@ -5,7 +5,7 @@ import AppointmentForm from '../ui/AppointmentForm';
 import AppointmentCalendar from '../ui/AppointmentCalendar';
 import AppointmentThankYou from '../ui/AppointmentThankYou';
 
-const BookAppointmentModal = ({ isOpen, onClose }) => {
+const BookAppointmentModal = ({ isOpen, onClose, prefilledData = {} }) => {
     const [currentStep, setCurrentStep] = useState('form'); // 'form', 'calendar', 'thankyou'
     const [formData, setFormData] = useState({
         firstName: '',
@@ -15,6 +15,16 @@ const BookAppointmentModal = ({ isOpen, onClose }) => {
         message: ''
     });
     const [selectedDateTime, setSelectedDateTime] = useState(null);
+
+    // Update form data when prefilled data changes
+    useEffect(() => {
+        if (prefilledData && Object.keys(prefilledData).length > 0) {
+            setFormData(prev => ({
+                ...prev,
+                ...prefilledData
+            }));
+        }
+    }, [prefilledData]);
 
     const handleFormSubmit = (data) => {
         setFormData(data);
