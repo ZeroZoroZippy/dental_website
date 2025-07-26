@@ -3,6 +3,7 @@ import './App.css'
 import Homepage from './pages/Homepage'
 import ServicesPage from './pages/ServicesPage'
 import GalleryPage from './pages/GalleryPage'
+import GalleryEditPage from './pages/GalleryEditPage'
 import { useLenis } from './hooks/useLenis'
 import { BookingProvider } from './components/BookingProvider'
 
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Homepage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/gallery" element={<GalleryPage />} />
+            <Route path="/gallery/edit" element={<GalleryEditPage />} />
           </Routes>
         </div>
       </Router>
