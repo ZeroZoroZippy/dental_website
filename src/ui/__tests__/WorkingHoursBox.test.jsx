@@ -20,14 +20,14 @@ describe('WorkingHoursBox', () => {
 
   test('renders weekday hours', () => {
     render(<WorkingHoursBox windowWidth={1024} />);
-    expect(screen.getByText('Monday - Friday')).toBeInTheDocument();
-    expect(screen.getByText('9AM - 9PM')).toBeInTheDocument();
+    expect(screen.getByText('Monday - Saturday:')).toBeInTheDocument();
+    expect(screen.getByText('10AM - 2PM, 5PM - 9:30PM')).toBeInTheDocument();
   });
 
   test('renders weekend hours', () => {
     render(<WorkingHoursBox windowWidth={1024} />);
-    expect(screen.getByText('Saturday, Sunday')).toBeInTheDocument();
-    expect(screen.getByText('10AM - 6PM')).toBeInTheDocument();
+    expect(screen.getByText('Sunday:')).toBeInTheDocument();
+    expect(screen.getByText('By Appointment Only')).toBeInTheDocument();
   });
 
   test('applies correct styles for desktop', () => {

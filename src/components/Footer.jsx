@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { TbDental } from "react-icons/tb";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { detailedWorkingHours } from '../ui/WorkingHours';
 
 const Footer = () => {
@@ -31,18 +31,15 @@ const Footer = () => {
 
     const services = [
         'Preventive Care',
-        'Cosmetic Dentistry',
+        'Cosmetic Treatment',
         'Orthodontics',
-        'Emergency Care',
+        'Surgical Treatment',
         'Restorative Dentistry',
-        'Specialty Services'
     ];
 
     const socialLinks = [
-        { icon: FaFacebookF, href: '#', label: 'Facebook' },
-        { icon: FaTwitter, href: '#', label: 'Twitter' },
-        { icon: FaInstagram, href: '#', label: 'Instagram' },
-        { icon: FaLinkedinIn, href: '#', label: 'LinkedIn' },
+        { icon: FaInstagram, href: 'https://www.instagram.com/sarvodaya_dentalclinic/?hl=en', label: 'Instagram' },
+        { icon: FaLinkedinIn, href: 'https://www.linkedin.com/in/dr-shruti-shetty-1711081a8/', label: 'LinkedIn' },
     ];
 
     return (
@@ -78,7 +75,7 @@ const Footer = () => {
                             <div className="w-12 h-12 rounded-full bg-[#1FC8EA]/20 flex items-center justify-center mr-3">
                                 <TbDental className="w-7 h-7 text-[#1FC8EA]" />
                             </div>
-                            <h3 className="text-white text-xl font-unbounded-semibold">DentalCare</h3>
+                            <h3 className="text-white text-xl font-unbounded-semibold">Sarvodaya Dental Clinic</h3>
                         </div>
                         <p className="text-gray-300 font-quicksand-light text-sm leading-relaxed mb-4">
                             Providing exceptional dental care with a gentle touch. Your smile is our priority, and your comfort is our commitment.
@@ -90,6 +87,8 @@ const Footer = () => {
                                 <motion.a
                                     key={social.label}
                                     href={social.href}
+                                    target={social.href !== '#' ? '_blank' : undefined}
+                                    rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
                                     whileHover={{ scale: 1.1, backgroundColor: '#1FC8EA' }}
                                     whileTap={{ scale: 0.95 }}
                                     transition={{ duration: 0.2 }}
@@ -163,17 +162,16 @@ const Footer = () => {
                         <div className="space-y-3">
                             <div className="flex items-center" style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}>
                                 <FaPhone className="w-4 h-4 text-[#1FC8EA] mr-3 flex-shrink-0" />
-                                <span className="text-gray-300 font-quicksand-light text-sm">(555) 123-4567</span>
+                                <span className="text-gray-300 font-quicksand-light text-sm">+91 9321765587</span>
                             </div>
                             <div className="flex items-center" style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}>
                                 <FaEnvelope className="w-4 h-4 text-[#1FC8EA] mr-3 flex-shrink-0" />
-                                <span className="text-gray-300 font-quicksand-light text-sm">[email]@dentalcare.com</span>
+                                <span className="text-gray-300 font-quicksand-light text-sm">drshrutishettysarvodaya@gmail.com</span>
                             </div>
                             <div className="flex items-start" style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}>
                                 <FaMapMarkerAlt className="w-4 h-4 text-[#1FC8EA] mr-3 flex-shrink-0 mt-0.5" />
                                 <span className="text-gray-300 font-quicksand-light text-sm">
-                                    123 Dental Street<br />
-                                    Healthcare City, HC 12345
+                                    Shop no 2, Yadav compound, near varadvinayak mandir, Rawalpada, Dahisar East, Mumbai, Maharashtra 400068
                                 </span>
                             </div>
                             <div className="flex items-start" style={{ justifyContent: isMobile ? 'center' : 'flex-start' }}>
@@ -198,7 +196,7 @@ const Footer = () => {
                 >
                     <div className={`flex ${isMobile ? 'flex-col space-y-4 text-center' : 'flex-row justify-between items-center'}`}>
                         <p className="text-gray-400 font-quicksand-light text-sm">
-                            © 2025 DentalCare. All rights reserved.
+                            © 2025 Sarvodaya Dental Clinic. All rights reserved.
                         </p>
                         <div className={`flex ${isMobile ? 'justify-center' : ''} space-x-6`}>
                             <motion.a
