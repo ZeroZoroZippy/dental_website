@@ -4,17 +4,7 @@ import { MdClose, MdArrowBack, MdArrowForward } from "react-icons/md";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import GalleryCard from '../ui/GalleryCard';
-
-// Import images
-import hero from '../assets/hero.jpeg';
-import preventiveCare from '../assets/preventive_care_1.png';
-import cosmeticCare from '../assets/cosmetic_care.png';
-import orthodontics from '../assets/Orthodontics.png';
-import restoration from '../assets/restorative_dentistry.png';
-import emergency from '../assets/Emergency_Care.png';
-import specialityService from '../assets/speciality_service.png';
-import bannerDesktop from '../assets/banner_desktop.png';
-import bannerMobile from '../assets/banner_mobile.png';
+import { getGalleryItems } from '../utils/galleryStorage';
 
 const GalleryPage = () => {
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -40,114 +30,37 @@ const GalleryPage = () => {
 
     const isMobile = windowWidth < 768;
 
-    // Expanded gallery items with more content
-    const galleryItems = [
-        {
-            id: 1,
-            image: hero,
-            title: "Modern Dental Office",
-            category: "Facility",
-            description: "Our state-of-the-art facility designed for comfort and advanced care"
-        },
-        {
-            id: 2,
-            image: preventiveCare,
-            title: "Preventive Care",
-            category: "Treatment",
-            description: "Regular cleanings and checkups to maintain optimal oral health"
-        },
-        {
-            id: 3,
-            image: cosmeticCare,
-            title: "Smile Makeovers",
-            category: "Cosmetic",
-            description: "Beautiful results with our cosmetic dentistry services"
-        },
-        {
-            id: 4,
-            image: orthodontics,
-            title: "Orthodontics",
-            category: "Treatment",
-            description: "Straight teeth solutions for all ages"
-        },
-        {
-            id: 5,
-            image: restoration,
-            title: "Restorative Work",
-            category: "Treatment",
-            description: "Expert dental restoration and repair services"
-        },
-        {
-            id: 6,
-            image: emergency,
-            title: "Emergency Care",
-            category: "Emergency",
-            description: "Immediate dental care when you need it most"
-        },
-        {
-            id: 7,
-            image: specialityService,
-            title: "Specialty Services",
-            category: "Treatment",
-            description: "Advanced specialized dental procedures"
-        },
-        {
-            id: 8,
-            image: bannerDesktop,
-            title: "Patient Comfort",
-            category: "Facility",
-            description: "Comfortable environment for all our patients"
-        },
-        {
-            id: 9,
-            image: bannerMobile,
-            title: "Modern Equipment",
-            category: "Facility",
-            description: "Latest technology for precise treatments"
-        },
-        {
-            id: 10,
-            image: hero,
-            title: "Reception Area",
-            category: "Facility",
-            description: "Welcoming space for our patients"
-        },
-        {
-            id: 11,
-            image: preventiveCare,
-            title: "Dental Hygiene",
-            category: "Treatment",
-            description: "Professional cleaning services"
-        },
-        {
-            id: 12,
-            image: cosmeticCare,
-            title: "Teeth Whitening",
-            category: "Cosmetic",
-            description: "Brighten your smile"
-        },
-        {
-            id: 13,
-            image: orthodontics,
-            title: "Braces & Aligners",
-            category: "Treatment",
-            description: "Modern orthodontic solutions"
-        },
-        {
-            id: 14,
-            image: restoration,
-            title: "Dental Implants",
-            category: "Treatment",
-            description: "Permanent tooth replacement"
-        },
-        {
-            id: 15,
-            image: emergency,
-            title: "24/7 Emergency",
-            category: "Emergency",
-            description: "Round-the-clock emergency care"
-        }
-    ];
+    // Load gallery items from storage
+    const [galleryItems, setGalleryItems] = useState([]);
+
+    useEffect(() => {
+        const loadItems = async () => {
+            try {
+                const items = await getGalleryItems();
+                setGalleryItems(items.sort((a, b) => a.order - b.order));
+            } catch (error) {
+                console.error('Error loading gallery items:', error);
+                setGalleryItems([]);
+            }
+        };
+
+        loadItems();
+
+        // Listen for storage changes (when CMS updates items)
+        const handleStorageChange = () => {
+            loadItems();
+        };
+
+        window.addEventListener('storage', handleStorageChange);
+        
+        // Also listen for custom events from the same tab
+        window.addEventListener('galleryUpdated', handleStorageChange);
+
+        return () => {
+            window.removeEventListener('storage', handleStorageChange);
+            window.removeEventListener('galleryUpdated', handleStorageChange);
+        };
+    }, []);
 
     const categories = ['All', 'Facility', 'Treatment', 'Cosmetic', 'Emergency'];
 
