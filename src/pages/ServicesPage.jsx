@@ -95,76 +95,58 @@ const ServicesPage = () => {
             image: preventive_care,
             description: 'Maintain optimal oral health with our comprehensive preventive care services.',
             services: [
-                { name: 'Regular Dental Check-up', price: '₹800', description: 'Comprehensive oral examination and consultation' },
-                { name: 'Professional Teeth Cleaning', price: '₹1,200', description: 'Deep cleaning to remove plaque and tartar' },
-                { name: 'Fluoride Treatment', price: '₹600', description: 'Protective fluoride application for cavity prevention' },
-                { name: 'Dental X-rays', price: '₹400', description: 'Digital X-rays for accurate diagnosis' },
-                { name: 'Oral Cancer Screening', price: '₹500', description: 'Early detection screening for oral health' }
+                { name: 'Dental Check up Consultation', price: '₹150', description: 'Comprehensive oral examination and consultation' },
+                { name: 'Xray', price: '₹100', description: 'Digital X-rays for accurate diagnosis' },
+                { name: 'Professional Teeth Cleaning', price: '₹600*', description: 'Deep cleaning to remove plaque and tartar' },
+                { name: 'Fluoride/Varnish Treatment', price: '₹1000*', description: 'Protective fluoride application for cavity prevention' }
             ]
         },
         {
             id: 'restorative',
-            title: 'Restorative Dentistry',
+            title: 'Restorative Treatment',
             image: restoration,
             description: 'Restore your teeth\'s function and appearance with our advanced restorative treatments.',
             services: [
-                { name: 'Dental Fillings (Composite)', price: '₹1,500', description: 'Tooth-colored fillings for cavities' },
-                { name: 'Dental Crown', price: '₹8,000', description: 'Custom crowns to restore damaged teeth' },
-                { name: 'Dental Bridge', price: '₹15,000', description: 'Replace missing teeth with fixed bridges' },
-                { name: 'Dental Implant', price: '₹25,000', description: 'Permanent tooth replacement solution' },
-                { name: 'Root Canal Treatment', price: '₹5,000', description: 'Save infected teeth with root canal therapy' }
+                { name: 'Tooth Filling', price: '₹500*', description: 'Tooth-colored fillings for cavities' },
+                { name: 'Root Canal Treatment', price: '₹3000*', description: 'Save infected teeth with root canal therapy' },
+                { name: 'Cap', price: '₹1000*', description: 'Custom crowns to restore damaged teeth' },
+                { name: 'Bridge', price: '₹3000*', description: 'Replace missing teeth with fixed bridges' },
+                { name: 'Complete Denture', price: '₹10000*', description: 'Full set of artificial teeth' },
+                { name: 'Implants', price: '₹25000*', description: 'Permanent tooth replacement solution' }
             ]
         },
         {
             id: 'cosmetic',
-            title: 'Cosmetic Dentistry',
+            title: 'Cosmetic Treatment',
             image: cosmetic_care,
             description: 'Enhance your smile with our aesthetic dental treatments.',
             services: [
-                { name: 'Teeth Whitening (In-office)', price: '₹8,000', description: 'Professional whitening for brighter smile' },
-                { name: 'Teeth Whitening (Take-home)', price: '₹4,000', description: 'Custom whitening trays for home use' },
-                { name: 'Dental Veneers', price: '₹12,000', description: 'Porcelain veneers for perfect smile' },
-                { name: 'Dental Bonding', price: '₹3,000', description: 'Repair chips and gaps with bonding' },
-                { name: 'Smile Makeover Consultation', price: '₹1,000', description: 'Complete smile transformation planning' }
+                { name: 'Dental Veneers', price: '₹9000*', description: 'Porcelain veneers for perfect smile' },
+                { name: 'Teeth Whitening', price: '₹7000*', description: 'Professional whitening for brighter smile' },
+                { name: 'Smile Makeover Consultation', price: '₹1000*', description: 'Complete smile transformation planning' }
             ]
         },
         {
             id: 'orthodontics',
-            title: 'Orthodontics',
+            title: 'Orthodontic Treatment',
             image: orthodontics,
             description: 'Straighten your teeth and correct bite issues with modern orthodontic solutions.',
             services: [
-                { name: 'Metal Braces', price: '₹40,000', description: 'Traditional braces for effective teeth alignment' },
-                { name: 'Ceramic Braces', price: '₹60,000', description: 'Tooth-colored braces for discreet treatment' },
-                { name: 'Clear Aligners (Invisalign)', price: '₹80,000', description: 'Nearly invisible aligners for adults' },
-                { name: 'Retainers', price: '₹5,000', description: 'Maintain teeth position after treatment' },
-                { name: 'Orthodontic Consultation', price: '₹800', description: 'Initial assessment and treatment planning' }
+                { name: 'Orthodontic Consultation', price: '₹500', description: 'Initial assessment and treatment planning' },
+                { name: 'Retainers', price: '₹2000*', description: 'Maintain teeth position after treatment' },
+                { name: 'Orthodontic Braces Treatment', price: '₹30000*', description: 'Traditional braces for effective teeth alignment' },
+                { name: 'Transparent Aligner Treatment', price: '₹80000*', description: 'Nearly invisible aligners for adults' }
             ]
         },
         {
-            id: 'specialty',
-            title: 'Specialty Services',
+            id: 'surgical',
+            title: 'Surgical Treatment',
             image: speciality,
-            description: 'Specialized treatments for complex dental conditions.',
+            description: 'Specialized surgical treatments for complex dental conditions.',
             services: [
-                { name: 'Periodontal Treatment', price: '₹3,000', description: 'Gum disease treatment and maintenance' },
-                { name: 'Oral Surgery', price: '₹8,000', description: 'Surgical procedures for complex cases' },
-                { name: 'TMJ Treatment', price: '₹5,000', description: 'Jaw joint disorder treatment' },
-                { name: 'Sleep Apnea Appliance', price: '₹15,000', description: 'Custom appliances for sleep disorders' },
-                { name: 'Pediatric Dentistry', price: '₹1,200', description: 'Specialized care for children' }
-            ]
-        },
-        {
-            id: 'emergency',
-            title: 'Emergency Care',
-            image: emergency,
-            description: '24/7 emergency dental services for urgent dental problems.',
-            services: [
-                { name: 'Emergency Consultation', price: '₹1,500', description: 'Immediate assessment and pain relief' },
-                { name: 'Toothache Treatment', price: '₹2,000', description: 'Quick relief for dental pain' },
-                { name: 'Broken Tooth Repair', price: '₹3,000', description: 'Emergency repair for damaged teeth' },
-                { name: 'Emergency Extraction', price: '₹2,500', description: 'Urgent tooth removal when necessary' },
-                { name: 'Dental Trauma Care', price: '₹4,000', description: 'Treatment for dental injuries' }
+                { name: 'Tooth Extraction', price: '₹500*', description: 'Surgical removal of teeth' },
+                { name: 'Curettage', price: '₹2000*', description: 'Gum tissue treatment' },
+                { name: 'Periodontal Surgery', price: '₹8000*', description: 'Advanced gum disease treatment' }
             ]
         }
     ];

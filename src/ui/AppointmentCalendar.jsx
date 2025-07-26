@@ -9,10 +9,10 @@ const AppointmentCalendar = ({ onDateTimeSelect, onBack, formData }) => {
 
     // Generate available time slots with real-time logic
     const getAvailableTimeSlots = (selectedDate) => {
+        // Monday to Saturday: 10am to 2pm, 5:00pm to 9:30pm
         const allTimeSlots = [
-            '09:00 AM', '10:00 AM', '11:00 AM', '12:00 PM',
-            '02:00 PM', '03:00 PM', '04:00 PM', '05:00 PM',
-            '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM',
+            '10:00 AM', '11:00 AM', '12:00 PM', '01:00 PM', '02:00 PM',
+            '05:00 PM', '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '09:30 PM'
         ];
 
         // If no date is selected, return all slots
@@ -24,6 +24,11 @@ const AppointmentCalendar = ({ onDateTimeSelect, onBack, formData }) => {
 
         const selectedDateOnly = new Date(selectedDate);
         selectedDateOnly.setHours(0, 0, 0, 0);
+
+        // Check if selected date is Sunday (0 = Sunday)
+        if (selectedDateOnly.getDay() === 0) {
+            return []; // No regular slots for Sunday - appointment only
+        }
 
         // If selected date is not today, return all slots
         if (selectedDateOnly.getTime() !== today.getTime()) {
@@ -222,7 +227,16 @@ const AppointmentCalendar = ({ onDateTimeSelect, onBack, formData }) => {
                           * Outer div handles the fixed height and scrolling.
                           * Inner div handles the grid layout, which can now grow freely and overflow the parent.
                         */}
-                        {timeSlots.length > 0 ? (
+                        {selectedDate.getDay() === 0 ? (
+                            <div className="text-center py-4">
+                                <p className="text-gray-600 font-quicksand text-sm mb-3">
+                                    Sunday appointments are available by special arrangement only.
+                                </p>
+                                <p className="text-gray-500 font-quicksand text-xs">
+                                    Please call us at <span className="font-semibold">+91 9321765587</span> to schedule your Sunday appointment.
+                                </p>
+                            </div>
+                        ) : timeSlots.length > 0 ? (
                             <div className="max-h-[120px] overflow-y-auto pr-2">
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
                                     {timeSlots.map(time => (

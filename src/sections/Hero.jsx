@@ -20,13 +20,15 @@ const Hero = () => {
 
     // Image configuration - separate width and height for mobile
     const imageWidth = windowWidth < 768 ? '400px' : '100%'; // Keep original width
-    const imageHeight = windowWidth < 768 ? '200px' : '570px'; // Reduced height for mobile
+    const imageHeight = windowWidth < 768 ? '250px' : '570px'; // Reduced height for mobile
 
     return (
         <div style={{
             paddingTop: windowWidth < 768 ? '5.5rem' : '6.5rem',
+            paddingBottom: windowWidth < 768 ? '2rem' : '0',
             position: 'relative',
-            width: '100%'
+            width: '100%',
+            minHeight: windowWidth < 768 ? 'calc(100vh - 5.5rem)' : 'auto'
         }}>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -37,13 +39,15 @@ const Hero = () => {
                     margin: windowWidth < 768 ? '0.5rem' : '2rem',
                     marginTop: 0,
                     borderRadius: windowWidth < 768 ? '2rem' : '2rem',
-                    padding: '1.25rem',
+                    padding: windowWidth < 768 ? '1.5rem' : '1.25rem',
+                    paddingBottom: windowWidth < 768 ? '2rem' : '1.25rem',
                     position: 'relative',
                     zIndex: '1',
                     maxWidth: '1400px',
                     width: 'calc(100% - ' + (windowWidth < 768 ? '1rem' : '4rem') + ')',
                     marginLeft: 'auto',
                     marginRight: 'auto',
+                    minHeight: windowWidth < 768 ? '810px' : 'auto'
                 }}
             >
                 <div style={{
@@ -86,7 +90,7 @@ const Hero = () => {
                             >
                                 Your Perfect Smile Starts here
                             </motion.h1>
-                            
+
                             <motion.p
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -126,7 +130,7 @@ const Hero = () => {
                         order: windowWidth < 768 ? '2' : '2',
                         padding: '0',
                         margin: '0',
-                        marginBottom: windowWidth < 768 ? '0.25rem' : '0' // Reduced from '0.5rem' to '0.25rem'
+                        marginBottom: windowWidth < 768 ? '-1rem' : '0' // Reduced from '0.5rem' to '0.25rem'
                     }}>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -163,6 +167,7 @@ const Hero = () => {
                         alignItems: 'flex-start',
                         padding: '0',
                         margin: '0',
+                        marginTop: '1rem',
                         width: '100%',
                         order: '3'
                     }}>

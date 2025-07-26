@@ -17,7 +17,7 @@ const OpenNowBox = ({ windowWidth, delay = 1.0 }) => {
                 justifyContent: 'center',
                 gap: '0.5rem',
                 flex: '1',
-                height: windowWidth < 768 ? '100%' : 'auto',
+                height: windowWidth < 768 ? '140%' : 'auto',
                 minHeight: windowWidth < 768 ? 'auto' : '60px'
             }}
         >

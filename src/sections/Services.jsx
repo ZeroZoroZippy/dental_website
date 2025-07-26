@@ -298,7 +298,7 @@ const Services = () => {
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
-                            title="Cosmetic Dentistry"
+                            title="Cosmetic Treatment"
                             image={cosmetic_care}
                             checkPoints={[
                                 "Teeth whitening",
@@ -308,7 +308,7 @@ const Services = () => {
                             delay={1.6}
                             onExploreMore={handleExploreMore}
                         />
-                        <ServiceCard
+                        {/* <ServiceCard
                             windowWidth={windowWidth}
                             title="Specialty Services"
                             image={speciality}
@@ -319,7 +319,7 @@ const Services = () => {
                             ]}
                             delay={1.8}
                             onExploreMore={handleExploreMore}
-                        />
+                        /> */}
                         <ServiceCard
                             windowWidth={windowWidth}
                             title="Orthodontics"
@@ -334,7 +334,7 @@ const Services = () => {
                         />
                         <ServiceCard
                             windowWidth={windowWidth}
-                            title="Emergency Care"
+                            title="Surgical Treatment"
                             image={emergency}
                             checkPoints={[
                                 "Toothache relief",
