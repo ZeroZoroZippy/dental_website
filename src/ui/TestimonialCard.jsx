@@ -1,17 +1,25 @@
 import { motion } from 'framer-motion';
-import { FaStar, FaUserCircle } from 'react-icons/fa';
+import { FaStar } from 'react-icons/fa';
+import { useState } from 'react';
 
-const TestimonialCard = ({ 
-    windowWidth, 
-    name, 
-    location, 
-    rating, 
-    text, 
-    treatment, 
-    delay = 1.2 
+const TestimonialCard = ({
+    windowWidth,
+    name,
+    rating,
+    text,
+    treatment,
+    delay = 1.2
 }) => {
     const isMobile = windowWidth < 768;
-    
+    const [isExpanded, setIsExpanded] = useState(false);
+
+    // Truncate text if it's too long
+    const maxLength = 150;
+    const shouldTruncate = text.length > maxLength;
+    const displayText = shouldTruncate && !isExpanded
+        ? text.substring(0, maxLength) + '...'
+        : text;
+
     // Generate star rating
     const renderStars = () => {
         return Array.from({ length: 5 }, (_, index) => (
@@ -28,8 +36,8 @@ const TestimonialCard = ({
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ 
-                opacity: 1, 
+            animate={{
+                opacity: 1,
                 y: 0,
                 backgroundColor: '#f4f5f7',
                 scale: 1
@@ -49,7 +57,7 @@ const TestimonialCard = ({
                 width: isMobile ? '300px' : '350px',
                 maxWidth: isMobile ? '300px' : '350px',
                 minWidth: isMobile ? '300px' : '350px',
-                minHeight: '280px',
+                minHeight: isExpanded ? 'auto' : '280px',
                 flex: isMobile ? '0 0 300px' : '0 0 350px',
                 cursor: 'pointer',
                 scrollSnapAlign: isMobile ? 'start' : 'none',
@@ -86,8 +94,26 @@ const TestimonialCard = ({
                     margin: '0',
                     fontStyle: 'italic'
                 }}>
-                    "{text}"
+                    "{displayText}"
                 </p>
+                {shouldTruncate && (
+                    <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        style={{
+                            background: 'none',
+                            border: 'none',
+                            color: '#007bff',
+                            cursor: 'pointer',
+                            fontSize: '0.9rem',
+                            fontFamily: 'Quicksand, sans-serif',
+                            fontWeight: '600',
+                            marginTop: '0.5rem',
+                            padding: '0'
+                        }}
+                    >
+                        {isExpanded ? 'Read Less' : 'Read More'}
+                    </button>
+                )}
             </div>
 
             {/* Patient Info and Rating */}
@@ -118,7 +144,7 @@ const TestimonialCard = ({
                     }}>
                         {name}
                     </h4>
-                    <FaUserCircle style={{ fontSize: '50px', color: '#666' }} />
+                    {/* <FaUserCircle style={{ fontSize: '50px', color: '#666' }} /> */}
                 </div>
             </div>
         </motion.div>
