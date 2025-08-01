@@ -61,7 +61,7 @@ const About = () => {
                         textAlign: 'left'
                     }}
                 >
-                    Excellence in Dental Care
+                    Excellence in Dental Care at Sarvodaya
                 </motion.h2>
 
                 <div style={{
@@ -88,8 +88,8 @@ const About = () => {
                                 marginBottom: '1.5rem'
                             }}
                         >
-                            We are dedicated to providing exceptional dental care in a comfortable and welcoming environment.
-                            Our experienced team uses the latest technology and techniques.
+                            At Sarvodaya Dental Clinic, we are dedicated to providing exceptional dental care in a comfortable and welcoming environment. 
+                            Led by Dr. Shruti Shetty, our experienced team uses the latest technology and evidence-based techniques.
                         </motion.p>
 
                         <motion.p
@@ -104,8 +104,8 @@ const About = () => {
                                 marginBottom: '1.5rem'
                             }}
                         >
-                            From routine cleanings to advanced procedures, we ensure you receive the best possible
-                            treatment for your oral health needs.
+                            From routine cleanings to complex surgical procedures, we ensure you receive personalized, 
+                            high-quality treatment tailored to your unique oral health needs in our state-of-the-art facility.
                         </motion.p>
                     </div>
 
@@ -125,8 +125,8 @@ const About = () => {
                                 textAlign: 'left'
                             }}
                         >
-                            We're committed to helping you achieve and maintain optimal oral health while ensuring
-                            your comfort throughout every visit.
+                            Located in Dahisar East, Mumbai, we're committed to helping you achieve and maintain optimal oral health 
+                            while ensuring your comfort throughout every visit. Your smile is our priority.
                         </motion.p>
                     </div>
                 </div>

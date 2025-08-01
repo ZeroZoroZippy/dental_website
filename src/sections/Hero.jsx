@@ -88,7 +88,7 @@ const Hero = () => {
                                     marginBottom: '1rem'
                                 }}
                             >
-                                Your Perfect Smile Starts here
+                                Your Perfect Smile Starts Here
                             </motion.h1>
 
                             <motion.p
@@ -102,8 +102,8 @@ const Hero = () => {
                                     textAlign: 'left'
                                 }}
                             >
-                                Advanced dental care with a gental touch.<br />
-                                Book your Appointment today.
+                                Experience exceptional dental care at Sarvodaya Dental Clinic.<br />
+                                Advanced treatments with a gentle touch in Dahisar East, Mumbai.
                             </motion.p>
                         </div>
 

@@ -1,8 +1,10 @@
 {
-  "name": "portfolio",
+  "name": "sarvodaya-dental-clinic",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Official website for Sarvodaya Dental Clinic - Comprehensive dental care in Dahisar East, Mumbai",
+  "author": "Dr. Shruti Shetty",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -192,10 +192,10 @@ const Services = () => {
                                 margin: '0 0 3rem 0'
                             }}
                         >
-                            We offer comprehensive dental services <br />
-                            tailored to your needs, using advanced  <br />
-                            technology to provide exceptional care <br />
-                            in a comfortable environment.
+                            At Sarvodaya Dental Clinic, we offer comprehensive <br />
+                            dental services tailored to your unique needs, using <br />
+                            advanced technology and gentle techniques to provide <br />
+                            exceptional care in a comfortable, welcoming environment.
                         </motion.p>
 
                         <motion.button

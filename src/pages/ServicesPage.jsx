@@ -185,14 +185,14 @@ const ServicesPage = () => {
                             className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4"
                             style={{ fontFamily: 'Unbounded, sans-serif' }}
                         >
-                            Our Dental Services
+                            Sarvodaya Dental Services
                         </h1>
                         <p
                             className="text-lg text-gray-600 max-w-3xl mx-auto"
                             style={{ fontFamily: 'Quicksand, sans-serif' }}
                         >
-                            Comprehensive dental care with transparent pricing. Choose from our wide range of
-                            services and book your appointment instantly.
+                            Comprehensive dental care with transparent pricing at Sarvodaya Dental Clinic, Dahisar East. 
+                            Choose from our wide range of services and book your appointment instantly with Dr. Shruti Shetty.
                         </p>
                     </motion.div>
                 </div>
