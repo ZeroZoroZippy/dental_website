@@ -25,10 +25,11 @@ const Hero = () => {
     return (
         <div style={{
             paddingTop: windowWidth < 768 ? '5.5rem' : '6.5rem',
-            paddingBottom: windowWidth < 768 ? '2rem' : '0',
+            paddingBottom: windowWidth < 768 ? '1rem' : '0',
             position: 'relative',
             width: '100%',
-            minHeight: windowWidth < 768 ? 'calc(100vh - 5.5rem)' : 'auto'
+            minHeight: windowWidth < 768 ? 'auto' : 'auto',
+            overflow: 'hidden'
         }}>
             <motion.div
                 initial={{ opacity: 0 }}
@@ -47,7 +48,7 @@ const Hero = () => {
                     width: 'calc(100% - ' + (windowWidth < 768 ? '1rem' : '4rem') + ')',
                     marginLeft: 'auto',
                     marginRight: 'auto',
-                    minHeight: windowWidth < 768 ? '810px' : 'auto'
+                    minHeight: windowWidth < 768 ? 'auto' : 'auto'
                 }}
             >
                 <div style={{
@@ -66,7 +67,7 @@ const Hero = () => {
                         order: windowWidth < 768 ? '1' : '1',
                         padding: '0',
                         margin: '0',
-                        marginBottom: windowWidth < 768 ? '1rem' : '0' // Increased from '0.5rem' to '1rem'
+                        marginBottom: windowWidth < 768 ? '0.5rem' : '0'
                     }}>
                         <div style={{
                             display: 'flex',
@@ -130,7 +131,7 @@ const Hero = () => {
                         order: windowWidth < 768 ? '2' : '2',
                         padding: '0',
                         margin: '0',
-                        marginBottom: windowWidth < 768 ? '-1rem' : '0' // Reduced from '0.5rem' to '0.25rem'
+                        marginBottom: windowWidth < 768 ? '0' : '0'
                     }}>
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95 }}
@@ -167,7 +168,7 @@ const Hero = () => {
                         alignItems: 'flex-start',
                         padding: '0',
                         margin: '0',
-                        marginTop: '1rem',
+                        marginTop: '0.5rem',
                         width: '100%',
                         order: '3'
                     }}>

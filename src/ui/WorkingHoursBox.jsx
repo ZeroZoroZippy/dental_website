@@ -10,12 +10,12 @@ const WorkingHoursBox = ({ windowWidth, delay = 0.8 }) => {
             style={{
                 backgroundColor: '#f4f5f7',
                 borderRadius: '2rem',
-                padding: windowWidth < 768 ? '1.5rem' : '1.75rem',
-                paddingBottom: windowWidth < 768 ? '1.75rem' : '2rem',
+                padding: windowWidth < 768 ? '1rem' : '1.75rem',
+                paddingBottom: windowWidth < 768 ? '1rem' : '2rem',
                 flex: '1',
                 border: '1px solid #f0f0f0',
                 height: windowWidth < 768 ? '100%' : 'auto',
-                minHeight: windowWidth < 768 ? '180px' : '180px'
+                minHeight: windowWidth < 768 ? '100%' : '180px'
             }}
         >
             <h3 style={{

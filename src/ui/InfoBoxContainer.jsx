@@ -24,10 +24,10 @@ const InfoBoxContainer = () => {
         <div style={{
             display: 'flex',
             flexDirection: windowWidth < 768 ? 'column' : 'row',
-            gap: windowWidth < 768 ? '1rem' : '1rem',
-            marginTop: '2rem',
+            gap: windowWidth < 768 ? '0.75rem' : '1rem',
+            marginTop: windowWidth < 768 ? '0.5rem' : '2rem',
             width: '100%',
-            maxWidth: windowWidth < 768 ? '100%' : '100%'
+            maxWidth: '100%'
         }}>
             {/* Mobile Bento Layout */}
             {windowWidth < 768 ? (
@@ -44,7 +44,7 @@ const InfoBoxContainer = () => {
                         display: 'flex',
                         gap: '1rem',
                         width: '100%',
-                        height: '130px' // Fixed height to ensure both boxes are same height
+                        minHeight: '100px' // Minimum height to ensure both boxes are same height
                     }}>
                         {/* Working Hours - wider due to more content */}
                         <div style={{

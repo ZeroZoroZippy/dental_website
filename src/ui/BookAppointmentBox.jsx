@@ -24,7 +24,7 @@ const BookAppointmentBox = ({ windowWidth, delay = 0.9, onClick }) => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                minHeight: windowWidth < 768 ? '70px' : '250px',
+                minHeight: windowWidth < 768 ? '60px' : '250px',
                 flex: windowWidth < 768 ? '1' : '1.5', // 1.5x width on desktop
             }}
         >
