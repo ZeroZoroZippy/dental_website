@@ -8,9 +8,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:prod": "NODE_ENV=production vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview",
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --watchAll=false --coverage",
+    "deploy": "./deploy.sh",
+    "analyze": "npm run build && npx vite-bundle-analyzer dist/stats.html"
   },
   "dependencies": {
     "firebase": "^12.0.0",
@@ -45,6 +51,7 @@
     "jest-environment-jsdom": "^30.0.4",
     "jest-transform-stub": "^2.0.0",
     "tailwindcss": "^4.1.11",
+    "terser": "^5.43.1",
     "vite": "^7.0.4"
   }
 }

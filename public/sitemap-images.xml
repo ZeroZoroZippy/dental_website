@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <url>
+    <loc>https://sarvodayadentalclinic.com/</loc>
+    <image:image>
+      <image:loc>https://sarvodayadentalclinic.com/assets/hero.jpeg</image:loc>
+      <image:title>Sarvodaya Dental Clinic Interior</image:title>
+      <image:caption>Modern dental clinic with state-of-the-art equipment in Dahisar East, Mumbai</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarvodayadentalclinic.com/assets/preventive_care_1.png</image:loc>
+      <image:title>Preventive Dental Care Services</image:title>
+      <image:caption>Comprehensive preventive dental care at Sarvodaya Dental Clinic</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarvodayadentalclinic.com/assets/cosmetic_care.png</image:loc>
+      <image:title>Cosmetic Dentistry Services</image:title>
+      <image:caption>Professional cosmetic dentistry treatments including teeth whitening and veneers</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarvodayadentalclinic.com/assets/Orthodontics.png</image:loc>
+      <image:title>Orthodontic Treatment</image:title>
+      <image:caption>Braces and orthodontic treatments for perfect smile alignment</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarvodayadentalclinic.com/assets/restorative_dentistry.png</image:loc>
+      <image:title>Restorative Dentistry</image:title>
+      <image:caption>Dental crowns, bridges, and implant services for complete oral restoration</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://sarvodayadentalclinic.com/assets/Emergency_Care.png</image:loc>
+      <image:title>Emergency Dental Care</image:title>
+      <image:caption>24/7 emergency dental services for urgent dental problems</image:caption>
+    </image:image>
+  </url>
+  
+</urlset>

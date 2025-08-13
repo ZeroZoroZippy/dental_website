@@ -1,138 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1753334337910" clover="3.2.0">
-  <project timestamp="1753334337910" name="All files">
-    <metrics statements="79" coveredstatements="71" conditionals="206" coveredconditionals="205" methods="37" coveredmethods="29" elements="322" coveredelements="305" complexity="0" loc="79" ncloc="79" packages="5" files="13" classes="13"/>
-    <package name="src">
-      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="App.jsx" path="/Users/yuvaanvithlani/dental_website/src/App.jsx">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="5" count="4" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.components">
-      <metrics statements="17" coveredstatements="14" conditionals="14" coveredconditionals="13" methods="10" coveredmethods="7"/>
-      <file name="Navbar.jsx" path="/Users/yuvaanvithlani/dental_website/src/components/Navbar.jsx">
-        <metrics statements="17" coveredstatements="14" conditionals="14" coveredconditionals="13" methods="10" coveredmethods="7"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="11" type="stmt"/>
-        <line num="9" count="11" type="stmt"/>
-        <line num="12" count="11" type="stmt"/>
-        <line num="13" count="10" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="10" type="stmt"/>
-        <line num="18" count="10" type="stmt"/>
-        <line num="19" count="10" type="stmt"/>
-        <line num="25" count="11" type="stmt"/>
-        <line num="32" count="11" type="stmt"/>
-        <line num="79" count="44" type="stmt"/>
-        <line num="80" count="44" type="stmt"/>
-        <line num="153" count="1" type="stmt"/>
-        <line num="192" count="4" type="stmt"/>
-        <line num="195" count="0" type="stmt"/>
-        <line num="226" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.pages">
-      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Homepage.jsx" path="/Users/yuvaanvithlani/dental_website/src/pages/Homepage.jsx">
-        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-      </file>
-    </package>
-    <package name="src.sections">
-      <metrics statements="33" coveredstatements="30" conditionals="120" coveredconditionals="120" methods="12" coveredmethods="9"/>
+<coverage generated="1755073928061" clover="3.2.0">
+  <project timestamp="1755073928061" name="All files">
+    <metrics statements="72" coveredstatements="59" conditionals="266" coveredconditionals="232" methods="30" coveredmethods="20" elements="368" coveredelements="311" complexity="0" loc="72" ncloc="72" packages="2" files="11" classes="11"/>
+    <package name="sections">
+      <metrics statements="37" coveredstatements="27" conditionals="146" coveredconditionals="121" methods="16" coveredmethods="8"/>
       <file name="About.jsx" path="/Users/yuvaanvithlani/dental_website/src/sections/About.jsx">
         <metrics statements="10" coveredstatements="9" conditionals="52" coveredconditionals="52" methods="4" coveredmethods="3"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="11" type="stmt"/>
-        <line num="10" count="11" type="stmt"/>
-        <line num="11" count="11" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="15" count="11" type="stmt"/>
-        <line num="16" count="11" type="stmt"/>
-        <line num="17" count="11" type="stmt"/>
-        <line num="21" count="11" type="stmt"/>
-        <line num="23" count="11" type="stmt"/>
-      </file>
-      <file name="Banner.jsx" path="/Users/yuvaanvithlani/dental_website/src/sections/Banner.jsx">
-        <metrics statements="12" coveredstatements="11" conditionals="34" coveredconditionals="34" methods="4" coveredmethods="3"/>
-        <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="12" type="stmt"/>
-        <line num="11" count="12" type="stmt"/>
-        <line num="12" count="12" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="16" count="12" type="stmt"/>
-        <line num="17" count="12" type="stmt"/>
-        <line num="18" count="12" type="stmt"/>
-        <line num="22" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="24" count="12" type="stmt"/>
-        <line num="26" count="12" type="cond" truecount="2" falsecount="0"/>
-        <line num="28" count="12" type="stmt"/>
+        <line num="15" count="7" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="17" count="7" type="stmt"/>
+        <line num="21" count="7" type="stmt"/>
+        <line num="23" count="7" type="stmt"/>
       </file>
       <file name="Hero.jsx" path="/Users/yuvaanvithlani/dental_website/src/sections/Hero.jsx">
-        <metrics statements="11" coveredstatements="10" conditionals="34" coveredconditionals="34" methods="4" coveredmethods="3"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="10" type="stmt"/>
-        <line num="10" count="10" type="stmt"/>
-        <line num="11" count="10" type="stmt"/>
+        <metrics statements="11" coveredstatements="10" conditionals="44" coveredconditionals="44" methods="4" coveredmethods="3"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
-        <line num="15" count="10" type="stmt"/>
-        <line num="16" count="10" type="stmt"/>
-        <line num="17" count="10" type="stmt"/>
-        <line num="22" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="23" count="10" type="cond" truecount="2" falsecount="0"/>
-        <line num="25" count="10" type="stmt"/>
+        <line num="15" count="6" type="stmt"/>
+        <line num="16" count="6" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="22" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="6" type="stmt"/>
+      </file>
+      <file name="Testimonials.jsx" path="/Users/yuvaanvithlani/dental_website/src/sections/Testimonials.jsx">
+        <metrics statements="16" coveredstatements="8" conditionals="50" coveredconditionals="25" methods="8" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="13" type="stmt"/>
+        <line num="8" count="12" type="stmt"/>
+        <line num="10" count="12" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="21" count="12" type="stmt"/>
+        <line num="24" count="12" type="stmt"/>
+        <line num="74" count="12" type="stmt"/>
+        <line num="197" count="0" type="stmt"/>
+        <line num="198" count="0" type="stmt"/>
+        <line num="199" count="0" type="stmt"/>
+        <line num="259" count="72" type="stmt"/>
       </file>
     </package>
-    <package name="src.ui">
-      <metrics statements="26" coveredstatements="24" conditionals="72" coveredconditionals="72" methods="13" coveredmethods="11"/>
+    <package name="ui">
+      <metrics statements="35" coveredstatements="32" conditionals="120" coveredconditionals="111" methods="14" coveredmethods="12"/>
       <file name="AboutCard.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/AboutCard.jsx">
         <metrics statements="3" coveredstatements="3" conditionals="17" coveredconditionals="17" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="22" type="stmt"/>
-        <line num="6" count="22" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="6" type="stmt"/>
+        <line num="6" count="6" type="stmt"/>
       </file>
       <file name="BookAppointment.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/BookAppointment.jsx">
         <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="13" type="stmt"/>
-        <line num="9" count="13" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="9" count="9" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
       </file>
       <file name="BookAppointmentBox.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/BookAppointmentBox.jsx">
-        <metrics statements="3" coveredstatements="2" conditionals="13" coveredconditionals="13" methods="2" coveredmethods="1"/>
-        <line num="3" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="12" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-      </file>
-      <file name="InfoBoxContainer.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/InfoBoxContainer.jsx">
-        <metrics statements="9" coveredstatements="8" conditionals="8" coveredconditionals="8" methods="4" coveredmethods="3"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="9" type="stmt"/>
-        <line num="10" count="9" type="stmt"/>
-        <line num="11" count="9" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="9" type="stmt"/>
-        <line num="16" count="9" type="stmt"/>
-        <line num="17" count="9" type="stmt"/>
-        <line num="21" count="9" type="stmt"/>
+        <metrics statements="2" coveredstatements="2" conditionals="13" coveredconditionals="13" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="8" type="stmt"/>
       </file>
       <file name="OpenNowBox.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/OpenNowBox.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="11" coveredconditionals="11" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="12" type="stmt"/>
+        <line num="3" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="8" type="stmt"/>
+      </file>
+      <file name="TestimonialCard.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/TestimonialCard.jsx">
+        <metrics statements="11" coveredstatements="10" conditionals="27" coveredconditionals="20" methods="4" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+        <line num="19" count="3" type="cond" truecount="2" falsecount="2"/>
+        <line num="24" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="15" type="stmt"/>
+        <line num="36" count="3" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
       </file>
       <file name="WhyChooseUsBox.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/WhyChooseUsBox.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="9" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+      </file>
+      <file name="WorkingHours.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/WorkingHours.jsx">
+        <metrics statements="8" coveredstatements="6" conditionals="29" coveredconditionals="27" methods="2" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="2" falsecount="1"/>
+        <line num="21" count="10" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="34" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="10" type="stmt"/>
       </file>
       <file name="WorkingHoursBox.jsx" path="/Users/yuvaanvithlani/dental_website/src/ui/WorkingHoursBox.jsx">
         <metrics statements="2" coveredstatements="2" conditionals="13" coveredconditionals="13" methods="1" coveredmethods="1"/>
-        <line num="3" count="2" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="14" type="stmt"/>
+        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="5" count="10" type="stmt"/>
       </file>
     </package>
   </project>
