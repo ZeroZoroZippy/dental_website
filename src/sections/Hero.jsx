@@ -89,7 +89,7 @@ const Hero = () => {
                                     marginBottom: '1rem'
                                 }}
                             >
-                                Your Perfect Smile Starts Here
+                                Sarvodaya Dental Clinic - Dental Clinic in Dahisar East, Mumbai
                             </motion.h1>
 
                             <motion.p
