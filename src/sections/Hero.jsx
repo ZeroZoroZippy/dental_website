@@ -20,7 +20,7 @@ const Hero = () => {
 
     // Image configuration - separate width and height for mobile
     const imageWidth = windowWidth < 768 ? '400px' : '100%'; // Keep original width
-    const imageHeight = windowWidth < 768 ? '250px' : '570px'; // Reduced height for mobile
+    const imageHeight = windowWidth < 768 ? '250px' : '700px'; // Reduced height for mobile
 
     return (
         <div style={{
@@ -81,7 +81,7 @@ const Hero = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2, duration: 0.5 }}
                                 style={{
-                                    fontSize: windowWidth < 768 ? '2.25rem' : '4rem',
+                                    fontSize: windowWidth < 768 ? '2.25rem' : '3.5rem',
                                     fontWeight: '700',
                                     fontFamily: 'Unbounded, sans-serif',
                                     lineHeight: '1.1',
